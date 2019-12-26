@@ -3,13 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{858CD0CE-9390-4BCE-8301-3B9F81343969}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\Core\Core.csproj", "{858CD0CE-9390-4BCE-8301-3B9F81343969}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowSim", "src\FlowSim\FlowSim.csproj", "{CF9FBF9C-D1E9-4089-8A5A-FFD77E58BA18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlowSim", "src\FlowSim\FlowSim.csproj", "{CF9FBF9C-D1E9-4089-8A5A-FFD77E58BA18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "src\Proxy\Proxy.csproj", "{23D2DD16-6602-460C-8F86-0D348D10290C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxy", "src\Proxy\Proxy.csproj", "{23D2DD16-6602-460C-8F86-0D348D10290C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Energistics.DataAccess.Core", "ext\Yarus.Energistics\Energistics.DataAccess.Core\Energistics.DataAccess.Core.csproj", "{23082EDD-F7F4-446F-992D-F3611C20C0B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Energistics", "Energistics", "{B5647E5E-B7BF-4459-BA08-46307AAB09BD}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Energistics.DataAccess.Shared", "ext\Yarus.Energistics\Energistics.DataAccess.Shared\Energistics.DataAccess.Shared.shproj", "{A3F2A822-1819-4616-B032-1D54B5D9CA1E}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		ext\Yarus.Energistics\Energistics.DataAccess.Shared\Energistics.DataAccess.Shared.projitems*{a3f2a822-1819-4616-b032-1d54b5d9ca1e}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -27,9 +36,17 @@ Global
 		{23D2DD16-6602-460C-8F86-0D348D10290C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D2DD16-6602-460C-8F86-0D348D10290C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23D2DD16-6602-460C-8F86-0D348D10290C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23082EDD-F7F4-446F-992D-F3611C20C0B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23082EDD-F7F4-446F-992D-F3611C20C0B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23082EDD-F7F4-446F-992D-F3611C20C0B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23082EDD-F7F4-446F-992D-F3611C20C0B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23082EDD-F7F4-446F-992D-F3611C20C0B4} = {B5647E5E-B7BF-4459-BA08-46307AAB09BD}
+		{A3F2A822-1819-4616-B032-1D54B5D9CA1E} = {B5647E5E-B7BF-4459-BA08-46307AAB09BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {00AC3979-5032-4247-B396-2878A01EE63E}

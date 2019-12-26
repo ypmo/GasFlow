@@ -6,6 +6,7 @@ namespace Core
 {
    public  class Port
     {
-        public Unit Unit { get; set; }
+        public string Name { get; set; }
+        public FlowDirection  Direction { get; set; }
     }
 }

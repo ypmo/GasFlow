@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Proxy
+namespace Core
 {
-    public class IProxyModelFactory
+    public enum FlowDirection
     {
+        Inplet,
+        Outplet
     }
 }

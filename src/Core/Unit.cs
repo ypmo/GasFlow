@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Core
 {
-    public class Unit
+    public abstract class Unit : IUnit
     {
-        public List<Port> Ports { get; set; }
+        public abstract  IEnumerable<Port> GetPorts();
     }
 }
