@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Core.Componets
 {
-   public class Collector
+    public class Collector : Unit
     {
+        private List<Port> Ports { get; set; }
+        public override IEnumerable<Port> GetPorts() => Ports;
     }
 }
