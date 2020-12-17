@@ -8,7 +8,7 @@ namespace FlowSim
 {
     public static class Model_Extentions
     {
-   public static      Port ResolveСonnectedPort(this Network network, Port port)
+        public static Port ResolveСonnectedPort(this Network network, Port port)
         {
             var other =
                 network.Nodes.FirstOrDefault(t => t.InpletPort == port)?.OutpletPort

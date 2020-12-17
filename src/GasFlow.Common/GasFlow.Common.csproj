@@ -5,8 +5,4 @@
 	  <RootNamespace>GasFlow</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\GasFlow.Core\GasFlow.Core.csproj" />
-  </ItemGroup>
-
 </Project>

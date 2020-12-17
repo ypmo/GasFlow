@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace GasFlow
 {
-    public class Model
+    public interface IModel
     {
-        public Network Network { get; set; }
+        INetwork Network { get; }
     }
 }

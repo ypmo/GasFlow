@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	  <RootNamespace>GasFlow</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GasFlow.Common\GasFlow.Common.csproj" />
+  </ItemGroup>
 
 </Project>

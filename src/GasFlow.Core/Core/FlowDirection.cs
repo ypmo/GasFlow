@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace GasFlow.Core
 {
-    public interface IUnit
+    public enum FlowDirection
     {
-        IEnumerable<Port> GetPorts();
+        Inplet,
+        Outplet
     }
 }

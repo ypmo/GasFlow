@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace GasFlow
 {
-    public enum FlowDirection
+    public interface IPort
     {
-        Inplet,
-        Outplet
     }
 }

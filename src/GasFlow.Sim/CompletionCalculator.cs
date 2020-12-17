@@ -1,9 +1,11 @@
 ﻿using Core;
-using Core.Componets;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using GasFlow.Units;
+
 namespace FlowSim
 {
     public class CompletionCalculator : ISim<WellboreComplition>
