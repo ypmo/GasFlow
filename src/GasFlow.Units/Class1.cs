@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Demo
+namespace GazFlow.Units
 {
     public class Class1
     {

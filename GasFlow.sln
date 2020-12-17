@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\Core\Core.csproj", "{858CD0CE-9390-4BCE-8301-3B9F81343969}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GasFlow.Core", "src\GasFlow.Core\GasFlow.Core.csproj", "{858CD0CE-9390-4BCE-8301-3B9F81343969}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlowSim", "src\FlowSim\FlowSim.csproj", "{CF9FBF9C-D1E9-4089-8A5A-FFD77E58BA18}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxy", "src\Proxy\Proxy.csproj", "{23D2DD16-6602-460C-8F86-0D348D10290C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GasFlow.Sim", "src\GasFlow.Sim\GasFlow.Sim.csproj", "{CF9FBF9C-D1E9-4089-8A5A-FFD77E58BA18}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Energistics.DataAccess.Core", "ext\Yarus.Energistics\Energistics.DataAccess.Core\Energistics.DataAccess.Core.csproj", "{23082EDD-F7F4-446F-992D-F3611C20C0B4}"
 EndProject
@@ -15,12 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Energistics", "Energistics"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Energistics.DataAccess.Shared", "ext\Yarus.Energistics\Energistics.DataAccess.Shared\Energistics.DataAccess.Shared.shproj", "{A3F2A822-1819-4616-B032-1D54B5D9CA1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store", "Store\Store.csproj", "{66AA341A-ABEA-440B-8BA9-633AEBE428DA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{5195ACB3-6D32-4478-8461-16E7FCEF84C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GasFlow.Units", "src\GasFlow.Units\GasFlow.Units.csproj", "{6265980F-5610-4AC6-8A7A-87C3DF6D4BAF}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		ext\Yarus.Energistics\Energistics.DataAccess.Shared\Energistics.DataAccess.Shared.projitems*{23082edd-f7f4-446f-992d-f3611c20c0b4}*SharedItemsImports = 5
 		ext\Yarus.Energistics\Energistics.DataAccess.Shared\Energistics.DataAccess.Shared.projitems*{a3f2a822-1819-4616-b032-1d54b5d9ca1e}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,22 +33,14 @@ Global
 		{CF9FBF9C-D1E9-4089-8A5A-FFD77E58BA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF9FBF9C-D1E9-4089-8A5A-FFD77E58BA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF9FBF9C-D1E9-4089-8A5A-FFD77E58BA18}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23D2DD16-6602-460C-8F86-0D348D10290C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23D2DD16-6602-460C-8F86-0D348D10290C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23D2DD16-6602-460C-8F86-0D348D10290C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23D2DD16-6602-460C-8F86-0D348D10290C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23082EDD-F7F4-446F-992D-F3611C20C0B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{23082EDD-F7F4-446F-992D-F3611C20C0B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23082EDD-F7F4-446F-992D-F3611C20C0B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23082EDD-F7F4-446F-992D-F3611C20C0B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66AA341A-ABEA-440B-8BA9-633AEBE428DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66AA341A-ABEA-440B-8BA9-633AEBE428DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66AA341A-ABEA-440B-8BA9-633AEBE428DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66AA341A-ABEA-440B-8BA9-633AEBE428DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5195ACB3-6D32-4478-8461-16E7FCEF84C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5195ACB3-6D32-4478-8461-16E7FCEF84C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5195ACB3-6D32-4478-8461-16E7FCEF84C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5195ACB3-6D32-4478-8461-16E7FCEF84C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6265980F-5610-4AC6-8A7A-87C3DF6D4BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6265980F-5610-4AC6-8A7A-87C3DF6D4BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6265980F-5610-4AC6-8A7A-87C3DF6D4BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6265980F-5610-4AC6-8A7A-87C3DF6D4BAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
