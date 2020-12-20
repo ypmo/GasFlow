@@ -3,7 +3,6 @@
 using GasFlow.Units;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace FlowSim
 {
@@ -16,7 +15,7 @@ namespace FlowSim
             var outpletPortName = model.OutPlet.Id;
 
             var inpletPressure = conditions.GetValue(inpletPortId, ParametrTypes.Pressure);
-            var outpletPressure = conditions.GetValue(outpletPortName, ParametrTypes.Pressure );
+            var outpletPressure = conditions.GetValue(outpletPortName, ParametrTypes.Pressure);
 
             var q = Math.Pow(dia, 2) * outpletPressure * (inpletPressure - outpletPressure);
 

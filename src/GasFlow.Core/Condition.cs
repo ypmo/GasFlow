@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Core
 {
@@ -9,6 +7,5 @@ namespace Core
         public int PortId { get; set; }
 
         public IEnumerable<ConditionValue> ConditionValues { get; set; }
-
     }
 }

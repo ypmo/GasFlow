@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GasFlow.Units
+﻿namespace GasFlow.Units
 {
     public class Tubing : TransintUnit
     {

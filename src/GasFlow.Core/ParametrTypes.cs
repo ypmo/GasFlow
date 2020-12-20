@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Core
+﻿namespace Core
 {
- public enum ParametrTypes
+    public enum ParametrTypes
     {
         Pressure,
         VolumePerTime,

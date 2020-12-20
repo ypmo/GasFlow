@@ -1,12 +1,6 @@
-﻿using GasFlow.Units;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GasFlow.Units
+﻿namespace GasFlow.Units
 {
-    public class Collector :TransintUnit
+    public class Collector : TransintUnit
     {
-   
     }
 }

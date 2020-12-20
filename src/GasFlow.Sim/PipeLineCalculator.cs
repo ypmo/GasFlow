@@ -3,7 +3,6 @@
 using GasFlow.Units;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace FlowSim
 {

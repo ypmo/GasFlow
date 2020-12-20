@@ -1,11 +1,6 @@
-﻿using GasFlow.Core;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GasFlow.Units
+﻿namespace GasFlow.Units
 {
-    public class Choke : TransintUnit 
+    public class Choke : TransintUnit
     {
         public double Dia { get; set; }
     }

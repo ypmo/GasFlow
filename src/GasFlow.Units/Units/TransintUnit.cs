@@ -1,7 +1,5 @@
 ﻿using GasFlow.Core;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GasFlow.Units
 {
@@ -10,8 +8,6 @@ namespace GasFlow.Units
         public IPort InPlet { get; set; }
 
         public IPort OutPlet { get; set; }
-
-
 
         public override IEnumerable<IPort> Ports()
         {

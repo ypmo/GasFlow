@@ -2,11 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace FlowSim
 {
- public static   class Conditions_Extensions
+    public static class Conditions_Extensions
     {
         public static double GetValue(this IEnumerable<Condition> conditions, int portId, ParametrTypes parametr)
         {

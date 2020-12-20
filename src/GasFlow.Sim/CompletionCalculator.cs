@@ -1,16 +1,13 @@
 ﻿using Core;
-
+using GasFlow.Units;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using GasFlow.Units;
 
 namespace FlowSim
 {
     public class CompletionCalculator : ISim<WellboreComplition>
     {
-
         public IEnumerable<Condition> CalcModel(WellboreComplition model, IEnumerable<Condition> conditions)
         {
             var downholePortId = model.OutPlet.Id;
