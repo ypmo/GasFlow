@@ -13,15 +13,15 @@ namespace FlowSim
 
         public IEnumerable<Condition> CalcModel(WellboreComplition model, IEnumerable<Condition> conditions)
         {
-            var downholePortName = model.Downhole.Name;
-            var reservoirPortName = model.Reservoir.Name;
+            var downholePortId = model.OutPlet.Id;
+            var reservoirPortId = model.InPlet.Id;
             var Pres = conditions
-                .FirstOrDefault(t => t.PortName == reservoirPortName)?.ConditionValues
+                .FirstOrDefault(t => t.PortId == reservoirPortId)?.ConditionValues
                 .FirstOrDefault(t => t.Parametr == ParametrTypes.Pressure)?.Value
                 ?? throw new ArgumentNullException();
 
             var Pdh = conditions
-                .FirstOrDefault(t => t.PortName == downholePortName)?.ConditionValues
+                .FirstOrDefault(t => t.PortId == downholePortId)?.ConditionValues
                 .FirstOrDefault(t => t.Parametr == ParametrTypes.Pressure)?.Value
                 ?? throw new ArgumentNullException();
 
@@ -31,7 +31,7 @@ namespace FlowSim
 
             yield return new Condition
             {
-                PortName = downholePortName,
+                PortId = downholePortId,
                 ConditionValues = new List<ConditionValue>
                 {
                     new ConditionValue{Parametr=ParametrTypes.VolumePerTime, Value=q}

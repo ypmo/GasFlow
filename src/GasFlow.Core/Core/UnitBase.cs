@@ -7,6 +7,5 @@ namespace GasFlow.Core
     public abstract class UnitBase : IUnit
     {
         public abstract IEnumerable<IPort> Ports();
-
     }
 }

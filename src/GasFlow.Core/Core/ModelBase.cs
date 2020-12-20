@@ -4,7 +4,8 @@ using System.Text;
 
 namespace GasFlow.Core
 {
-    class ModelBase
+    public class ModelBase : IModel
     {
+        public INetwork Network { get; }
     }
 }

@@ -22,7 +22,7 @@ namespace FlowSim
 
             yield return new Condition
             {
-                PortName = outpletPortName,
+                PortId = outpletPortName,
                 ConditionValues = new List<ConditionValue>
                 {
                     new ConditionValue{Parametr=ParametrTypes.Pressure, Value=outPletPRessure},

@@ -8,10 +8,10 @@ namespace FlowSim
 {
  public static   class Conditions_Extensions
     {
-        public static double GetValue(this IEnumerable<Condition> conditions, string portName, ParametrTypes parametr)
+        public static double GetValue(this IEnumerable<Condition> conditions, int portId, ParametrTypes parametr)
         {
             var value = conditions
-               .FirstOrDefault(t => t.PortName == portName)?.ConditionValues
+               .FirstOrDefault(t => t.PortId == portId)?.ConditionValues
                .FirstOrDefault(t => t.Parametr == ParametrTypes.Pressure)?.Value
                ?? throw new ArgumentNullException();
 

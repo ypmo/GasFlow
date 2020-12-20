@@ -6,7 +6,6 @@ namespace GasFlow.Core
 {
     public class PortBase : IPort
     {
-        public string Name { get; set; }
-        public FlowDirection Direction { get; set; }
+        public int Id { get; }
     }
 }
