@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ext\Yarus.Energistics\Energistics.DataAccess.Core\Energistics.DataAccess.Core.csproj" />
+    <ProjectReference Include="..\GasFlow.Sim\GasFlow.Sim.csproj" />
   </ItemGroup>
 
 </Project>

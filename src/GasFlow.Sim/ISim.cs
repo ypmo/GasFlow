@@ -1,10 +1,11 @@
-﻿using Core;
+﻿
 using System.Collections.Generic;
-
-namespace FlowSim
+using System.Threading.Tasks;
+using PRODML = Energistics.DataAccess.PRODML200;
+namespace GasFlow.Sim
 {
-    public interface ISim<TModel>
+    public interface ISim
     {
-        IEnumerable<Condition> CalcModel(TModel model, IEnumerable<Condition> condition);
+        Task<PRODML.ProductVolume> CalcModel(PRODML.ProductFlowModel model, PRODML.ProductVolume volume);
     }
 }
