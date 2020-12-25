@@ -10,7 +10,7 @@ namespace GasFlow.Sim.Own
     {
         public Task<ProductVolume> CalcModel(ProductFlowModel model, ProductVolume volume)
         {
-            model.ExternalConnect.
+            
             throw new NotImplementedException();
         }
     }

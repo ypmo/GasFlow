@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GasFlow.Facility\GasFlow.Facility.csproj" />
     <ProjectReference Include="..\GasFlow.Sim\GasFlow.Sim.csproj" />
   </ItemGroup>
 

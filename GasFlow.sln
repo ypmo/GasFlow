@@ -29,9 +29,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GasFlow.Optimum", "src\GasF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GasFlow.Sim.PipeSim", "src\GasFlow.Sim.PipeSim\GasFlow.Sim.PipeSim.csproj", "{9C5B5780-322C-4015-8516-F78DC3199A75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GasFlow.Sim.Own", "src\GasFlow.Sim.Own\GasFlow.Sim.Own.csproj", "{B1DBEAB7-FF4B-4EC5-B005-020BD1A11EE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GasFlow.Sim.Own", "src\GasFlow.Sim.Own\GasFlow.Sim.Own.csproj", "{B1DBEAB7-FF4B-4EC5-B005-020BD1A11EE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GasFlow.Sim.Own.Tests", "test\GasFlow.Sim.Own.Tests\GasFlow.Sim.Own.Tests.csproj", "{BA7CE0CD-2F02-4D0C-AD0E-376EEA108CC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GasFlow.Sim.Own.Tests", "test\GasFlow.Sim.Own.Tests\GasFlow.Sim.Own.Tests.csproj", "{BA7CE0CD-2F02-4D0C-AD0E-376EEA108CC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GasFlow", "src\GasFlow\GasFlow.csproj", "{D709A823-6657-4AD0-B0E6-15594E6EC16B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GasFlow.Facility", "src\GasFlow.Facility\GasFlow.Facility.csproj", "{11D63266-7974-4691-9DC3-C8970D7C69FB}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -87,6 +91,14 @@ Global
 		{BA7CE0CD-2F02-4D0C-AD0E-376EEA108CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA7CE0CD-2F02-4D0C-AD0E-376EEA108CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA7CE0CD-2F02-4D0C-AD0E-376EEA108CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D709A823-6657-4AD0-B0E6-15594E6EC16B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D709A823-6657-4AD0-B0E6-15594E6EC16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D709A823-6657-4AD0-B0E6-15594E6EC16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D709A823-6657-4AD0-B0E6-15594E6EC16B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D63266-7974-4691-9DC3-C8970D7C69FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D63266-7974-4691-9DC3-C8970D7C69FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D63266-7974-4691-9DC3-C8970D7C69FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D63266-7974-4691-9DC3-C8970D7C69FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +116,8 @@ Global
 		{9C5B5780-322C-4015-8516-F78DC3199A75} = {FC4ECB41-EA24-41E3-ACD3-C87ECFBF4828}
 		{B1DBEAB7-FF4B-4EC5-B005-020BD1A11EE8} = {FC4ECB41-EA24-41E3-ACD3-C87ECFBF4828}
 		{BA7CE0CD-2F02-4D0C-AD0E-376EEA108CC2} = {52415105-9868-4B2D-8C92-FF50863AC43D}
+		{D709A823-6657-4AD0-B0E6-15594E6EC16B} = {FC4ECB41-EA24-41E3-ACD3-C87ECFBF4828}
+		{11D63266-7974-4691-9DC3-C8970D7C69FB} = {FC4ECB41-EA24-41E3-ACD3-C87ECFBF4828}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {00AC3979-5032-4247-B396-2878A01EE63E}
