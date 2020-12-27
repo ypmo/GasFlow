@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace FlowSim
 {
-    public class CompletionCalculator : ISim<WellboreComplition>
+    public class CompletionCalculator 
     {
         public IEnumerable<Condition> CalcModel(WellboreComplition model, IEnumerable<Condition> conditions)
         {

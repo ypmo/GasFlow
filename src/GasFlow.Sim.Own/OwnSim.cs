@@ -1,16 +1,17 @@
-﻿using Energistics.DataAccess.PRODML200;
+﻿using Energistics.DataAccess.PRODML210;
+using GasFlow.Sim.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GasFlow.Sim.Own
 {
-    public class OwnSim : ISim
+    public class OwnSim : ISimulator
     {
-        public Task<ProductVolume> CalcModel(ProductFlowModel model, ProductVolume volume)
+        public Task<SimResult> Simulate(SimInput input, CancellationToken cancelation)
         {
-            
             throw new NotImplementedException();
         }
     }

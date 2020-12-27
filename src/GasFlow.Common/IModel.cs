@@ -1,8 +1,7 @@
 ﻿namespace GasFlow
 {
-    public interface IModel
+    public interface IModel : IEntity
     {
-        int Id { get; }
         INetwork Network { get; }
     }
 }

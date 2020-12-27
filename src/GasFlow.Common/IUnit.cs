@@ -2,10 +2,8 @@
 
 namespace GasFlow
 {
-    public interface IUnit
+    public interface IUnit : IEntity
     {
-        int Id { get; }
-
         IEnumerable<IPort> Ports();
     }
 }

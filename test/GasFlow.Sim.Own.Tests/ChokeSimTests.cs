@@ -1,43 +1,45 @@
-using System;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Energistics.DataAccess.PRODML200.ComponentSchemas;
-using Energistics.DataAccess.PRODML200.ReferenceData;
-using Xunit;
-using prodml = Energistics.DataAccess.PRODML200;
 namespace GasFlow.Sim.Own.Tests
 {
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
+    using Energistics.DataAccess;
+    using Energistics.DataAccess.PRODML210.ComponentSchemas;
+    using Energistics.DataAccess.PRODML210.ReferenceData;
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Xunit;
+    using prodml = Energistics.DataAccess.PRODML210;
+
     public class ChokeSimTests
     {
         [Fact]
         public async Task Test1()
         {
             var sim = new OwnSim();
-            var model = ChokeModel();
-            var inVolume = GetVolume();
-            var volume = await sim.CalcModel(model, inVolume);
+            GasFlow.Sim.Dto.SimInput model = new();
+            var volume = await sim.Simulate(model, CancellationToken.None);
             Assert.NotNull(volume);
+
         }
 
-
-        prodml.ProductFlowModel ChokeModel()
+        private prodml.ProductFlowModel ChokeModel()
         {
             var model = new prodml.ProductFlowModel()
             {
                 Uuid = "M_Chocke_01",
-                Network = new ObservableCollection<ProductFlowNetwork>()
+                Network = new List<ProductFlowNetwork>()
                 {
                     new ProductFlowNetwork()
                     {
                         Uid = "01",
                         Name="N_Choke_01",
-                        Port=new ObservableCollection<ProductFlowExternalPort>()
+                        Port=new List<ProductFlowExternalPort>()
                         {
                             new ProductFlowExternalPort()
                             {
                                 Uid ="inP1",
                                 Direction=ProductFlowPortType.inlet,
-
                             },
                             new ProductFlowExternalPort()
                             {
@@ -45,12 +47,12 @@ namespace GasFlow.Sim.Own.Tests
                                 Direction=ProductFlowPortType.outlet
                             }
                         },
-                        Unit=new ObservableCollection<ProductFlowUnit>()
+                        Unit=new List<ProductFlowUnit>()
                         {
                             new ProductFlowUnit()
                             {
                                 Uid="01",
-                                Port=new ObservableCollection<ProductFlowPort>()
+                                Port=new List<ProductFlowPort>()
                                 {
                                     new ProductFlowPort()
                                     {
@@ -68,11 +70,10 @@ namespace GasFlow.Sim.Own.Tests
                     }
                 }
             };
-
             return model;
         }
 
-        prodml.ProductVolume GetVolume()
+        private prodml.ProductVolume GetVolume()
         {
             var volume = new prodml.ProductVolume()
             {
@@ -80,37 +81,25 @@ namespace GasFlow.Sim.Own.Tests
                 {
                     Uuid = "M_Chocke_01"
                 },
-                Facility = new ObservableCollection<ProductVolumeFacility>()
+                Facility = new List<ProductVolumeFacility>()
                 {
                     new ProductVolumeFacility()
                     {
-                        Flow = new ObservableCollection<ProductVolumeFlow>()
+                        Flow = new List<ProductVolumeFlow>()
                         {
                             new ProductVolumeFlow()
                             {
                                 Properties = new CommonPropertiesProductVolume()
                                 {
-                                    FlowRateValue = new ObservableCollection<FlowRateValue>()
+                                    FlowRateValue = new List<FlowRateValue>()
                                     {
                                         new FlowRateValue()
                                         {
-                                            FlowRate = new VolumePerTimeMeasure()
-                                            {
-                                                Uom = VolumePerTimeUom.Item1000m3d,
-                                                Value = 100
-                                            },
+                                            FlowRate = new VolumePerTimeMeasure(100, VolumePerTimeUom.Item1000m3d.XMLName()),
                                             MeasurementPressureTemperature = new TemperaturePressure()
                                             {
-                                                Pressure = new PressureMeasure()
-                                                {
-                                                    Uom = PressureUom.at,
-                                                    Value = 10
-                                                },
-                                                Temperature = new ThermodynamicTemperatureMeasure()
-                                                {
-                                                    Uom = ThermodynamicTemperatureUom.degC,
-                                                    Value = 20
-                                                }
+                                                Pressure = new PressureMeasure(10, PressureUom.at.XMLName()),
+                                                Temperature = new ThermodynamicTemperatureMeasure(20, ThermodynamicTemperatureUom.degC)
                                             }
                                         }
                                     }
@@ -122,6 +111,5 @@ namespace GasFlow.Sim.Own.Tests
             };
             return volume;
         }
-
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FlowSim
 {
-    public class CompressorCalculator : ISim<Compressor>
+    public class CompressorCalculator 
     {
         public IEnumerable<Condition> CalcModel(Compressor model, IEnumerable<Condition> condition)
         {

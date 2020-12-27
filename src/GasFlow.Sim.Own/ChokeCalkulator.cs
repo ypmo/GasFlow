@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace FlowSim
 {
-    public class ChokeCalkulator : ISim<Choke>
+    public class ChokeCalkulator 
     {
         public IEnumerable<Condition> CalcModel(Choke model, IEnumerable<Condition> conditions)
         {
