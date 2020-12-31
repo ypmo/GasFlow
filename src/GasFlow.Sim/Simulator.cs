@@ -9,9 +9,9 @@ namespace GasFlow.Sim
 {
     public class Simulator : ISimulator
     {
-        public Task<SimResult> Simulate(SimInput input, CancellationToken cancelation)
+        public Task<SimResult> Simulate(SimInput input, CancellationToken cancellation)
         {
-            if (cancelation.IsCancellationRequested) return Task.FromCanceled<SimResult>(cancelation);
+            if (cancellation.IsCancellationRequested) return Task.FromCanceled<SimResult>(cancellation);
 
             if (input is null) return Task.FromException<SimResult>(new ArgumentNullException(nameof(input)));
             if (input.FlowModel is null) return Task.FromException<SimResult>(new ArgumentNullException(nameof(input.FlowModel)));
@@ -19,7 +19,7 @@ namespace GasFlow.Sim
 
             var network = input.FlowModel.Network.FirstOrDefault();
 
-            var inputPorts = network.
+            throw new NotImplementedException();
         }
     }
 }

@@ -8,8 +8,4 @@
     <ProjectReference Include="..\..\ext\Yarus.Energistics\Devkit.Core\Devkit.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="EngineFiles\" />
-  </ItemGroup>
-
 </Project>
