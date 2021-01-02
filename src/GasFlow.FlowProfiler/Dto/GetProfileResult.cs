@@ -1,6 +1,6 @@
 ﻿namespace GasFlow.FlowProfiler.Dto
 {
-    public interface IGetProfileResult
+    public class GetProfileResult
     {
     }
 }

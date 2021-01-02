@@ -7,5 +7,6 @@ namespace GasFlow.Sim.Dto
     public class SimInput
     {
         public ProductFlowModel FlowModel { get; set; }
+        public ProductVolume ProductVolume { get; set; }
     }
 }

@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ext\Yarus.Energistics\Devkit.Core\Devkit.Core.csproj" />
     <ProjectReference Include="..\GasFlow.Common\GasFlow.Common.csproj" />
   </ItemGroup>
 

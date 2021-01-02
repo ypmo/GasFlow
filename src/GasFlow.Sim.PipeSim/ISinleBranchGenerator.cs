@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GasFlow.Sim.PipeSim.EngineFiles
+namespace GasFlow.Sim.PipeSim
 {
     public interface ISingleBranchGenerator
     {

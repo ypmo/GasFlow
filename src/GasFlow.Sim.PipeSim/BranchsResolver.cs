@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace GasFlow.Sim.PipeSim
 {
-    public interface INetworkGenerator
+  public   class BranchsResolver
     {
-        Task<string> Generate(ProductFlowModel model, ProductVolume volume);
+   //     public Task<IEnumerable< Branch>> GetBranchs(ProductFlowModel model)
     }
 }

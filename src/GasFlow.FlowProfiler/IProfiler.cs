@@ -7,6 +7,6 @@ namespace GasFlow.FlowProfiler
 {
     public interface IProfiler
     {
-        Task<IGetProfileResult> GetProfile(IGetProfileInput input, CancellationToken cancelation);
+        Task<GetProfileResult> GetProfile(GetProfileInput input, CancellationToken cancelation);
     }
 }
