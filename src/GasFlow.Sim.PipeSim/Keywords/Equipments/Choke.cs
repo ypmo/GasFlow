@@ -81,27 +81,23 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
 
     public class ChokeKeyword : IEngineKeyword
     {
-        public ChokeKeyword(ChokeData data)
-        {
-            Data = data ?? throw new ArgumentNullException(nameof(data));
-        }
         ChokeData Data { get; set; }
 
         KeywodrdParametr<double> DBEAN => new("DBEAN=", () => Data.Dbean, (v) => true);
-        KeywodrdParametr<CriticalFlowCorrelation?> CriticalCorrelation => new("CCORR=", () => Data.CriticalCorrelation, (t) => t.HasValue);
-        KeywodrdParametr<SubCriticalFlowCorrelation?> SubCriticalCorrelation => new("SCCORR=", () => Data.SubCriticalCorrelation, (t) => t.HasValue);
-        KeywodrdParametr<double?> CriticalPressureRatio => new("CPRATIO=", () => Data.CriticalPressureRatio, (t) => t.HasValue);
-        KeywodrdParametr<double?> PercentageTolerance => new("TOL=", () => Data.PercentageTolerance, (t) => t.HasValue);
-        KeywodrdParametr<double?> DischargeCoefficient => new("CD=", () => Data.DischargeCoefficient, (t) => t.HasValue);
-        KeywodrdParametr<double?> FlowCoefficient => new("CSP=", () => Data.FlowCoefficient, (t) => t.HasValue);
-        KeywodrdParametr<double?> FluidSpecificHeatRatio => new("CPCV=", () => Data.FluidSpecificHeatRatio, (t) => t.HasValue);
-        KeywodrdParametr<OnOff?> Verbose => new("VERBOSE=", () => Data.Verbose, (t) => t.HasValue);
-        KeywodrdParametr<double?> PipeDia => new("PIPEID=", () => Data.PipeDia, (t) => t.HasValue);
-        KeywodrdParametr<double?> MaxMassRate => new("MAXMASS=", () => Data.MaxMassRate, (t) => t.HasValue);
-        KeywodrdParametr<double?> MaxGasRate => new("MAXGAS=", () => Data.MaxGasRate, (t) => t.HasValue);
-        KeywodrdParametr<double?> MaxGrossLiquidRate => new("MAXLIQUID=", () => Data.MaxGrossLiquidRate, (t) => t.HasValue);
-        KeywodrdParametr<double?> MaxOilRate => new("MAXOIL=", () => Data.MaxOilRate, (t) => t.HasValue);
-        KeywodrdParametr<double?> MaxWaterRate => new("MAXWATER=", () => Data.MaxWaterRate, (t) => t.HasValue);
+        KeywodrdParametr<CriticalFlowCorrelation?> CriticalCorrelation => new("CCORR=", () => Data.CriticalCorrelation);
+        KeywodrdParametr<SubCriticalFlowCorrelation?> SubCriticalCorrelation => new("SCCORR=", () => Data.SubCriticalCorrelation);
+        KeywodrdParametr<double?> CriticalPressureRatio => new("CPRATIO=", () => Data.CriticalPressureRatio);
+        KeywodrdParametr<double?> PercentageTolerance => new("TOL=", () => Data.PercentageTolerance);
+        KeywodrdParametr<double?> DischargeCoefficient => new("CD=", () => Data.DischargeCoefficient);
+        KeywodrdParametr<double?> FlowCoefficient => new("CSP=", () => Data.FlowCoefficient);
+        KeywodrdParametr<double?> FluidSpecificHeatRatio => new("CPCV=", () => Data.FluidSpecificHeatRatio);
+        KeywodrdParametr<OnOff?> Verbose => new("VERBOSE=", () => Data.Verbose);
+        KeywodrdParametr<double?> PipeDia => new("PIPEID=", () => Data.PipeDia);
+        KeywodrdParametr<double?> MaxMassRate => new("MAXMASS=", () => Data.MaxMassRate);
+        KeywodrdParametr<double?> MaxGasRate => new("MAXGAS=", () => Data.MaxGasRate);
+        KeywodrdParametr<double?> MaxGrossLiquidRate => new("MAXLIQUID=", () => Data.MaxGrossLiquidRate);
+        KeywodrdParametr<double?> MaxOilRate => new("MAXOIL=", () => Data.MaxOilRate);
+        KeywodrdParametr<double?> MaxWaterRate => new("MAXWATER=", () => Data.MaxWaterRate);
 
         public string WriteText()
         {
@@ -109,7 +105,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
             text.AppendLine("CHOKE")
                 .AppendLine(DBEAN)
                 .AppendLine(CriticalCorrelation);
-            
+
             return text.ToString();
         }
 

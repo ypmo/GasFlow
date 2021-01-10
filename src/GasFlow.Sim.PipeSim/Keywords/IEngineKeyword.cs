@@ -48,7 +48,7 @@ namespace GasFlow.Sim.PipeSim.Keywords
                 return v switch
                 {
                     double d => $"{Name}{d.ToString("G", CultureInfo.CreateSpecificCulture("en-En"))}",
-                    string s => $"{Name}'{s}'",
+                    string s => string.IsNullOrEmpty(s) ? string.Empty : $"{Name}'{s}'",
                     _ => throw new NotImplementedException()
                 };
             }
