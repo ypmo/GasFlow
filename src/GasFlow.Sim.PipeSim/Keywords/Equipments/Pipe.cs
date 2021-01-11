@@ -33,7 +33,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         KeywodrdParametr<double?> WaxConductivity => new("WAXK=", () => Data.WaxConductivity);
         KeywodrdParametr<double?> DriveRodDiameter => new("RODDIAM=", () => Data.DriveRodDiameter);
 
-        public string WriteText()
+        public string WriteText(KeywordOptions options)
         {
             throw new NotImplementedException();
         }

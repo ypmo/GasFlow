@@ -23,8 +23,4 @@
     <ProjectReference Include="..\..\src\GasFlow.Sim.PipeSim\GasFlow.Sim.PipeSim.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="PipeSimModels\" />
-  </ItemGroup>
-
 </Project>

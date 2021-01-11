@@ -32,7 +32,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         KeywodrdParametr<double?> MeasuredPressure => new("MPRESSURE=", () => Data.MeasuredPressure);
         KeywodrdParametr<double?> MeasuredTemperature => new("MTEMPERATURE=", () => Data.MeasuredTemperature);
         KeywodrdParametr<double?> MeasuredLiquidHoldup => new("MHOLDUP=", () => Data.MeasuredLiquidHoldup);
-        public string WriteText()
+        public string WriteText(KeywordOptions options)
         {
             throw new NotImplementedException();
         }

@@ -10,7 +10,7 @@ namespace GasFlow.Sim.PipeSim.Keywords
 {
     public interface IEngineKeyword
     {
-        string WriteText();
+        string WriteText(KeywordOptions options);
     }
 
     public interface IKeywordParametr
@@ -49,8 +49,32 @@ namespace GasFlow.Sim.PipeSim.Keywords
                 {
                     double d => $"{Name}{d.ToString("G", CultureInfo.CreateSpecificCulture("en-En"))}",
                     string s => string.IsNullOrEmpty(s) ? string.Empty : $"{Name}'{s}'",
+                    Meassure meassure => throw new NotImplementedException(),
                     _ => throw new NotImplementedException()
                 };
+            }
+        }
+    }
+
+    public class MeassureParametr : KeywodrdParametr<Meassure>
+    {
+        public MeassureParametr(string name, string si, string eng, Func<Meassure> value, Func<Meassure, bool> valid = null) : base(name, value, valid)
+        {
+            SiUom = si;
+            EngUom = eng;
+        }
+
+        public string SiUom { get; set; }
+        public string EngUom { get; set; }
+
+        public override string Text
+        {
+            get
+            {
+                var v = Value();
+                if (v is null || Valid is not null && !Valid(v)) return string.Empty;
+
+                return base.Text;
             }
         }
     }
