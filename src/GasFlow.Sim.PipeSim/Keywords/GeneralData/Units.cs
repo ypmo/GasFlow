@@ -10,7 +10,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.GeneralData
         public UnitType? Output { get; set; }
         public UnitType? All { get; set; }
     }
-    public class UnitsKeyword : IEngineKeyword
+    public class UnitsKeyword : IKeywordWriter
     {
         public UnitsData Data { get; set; }
         KeywodrdParametr<UnitType?> Input => new("INPUT=", () => Data.Input);
@@ -19,6 +19,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.GeneralData
 
         public string WriteText(KeywordOptions options)
         {
+
             throw new NotImplementedException();
         }
     }

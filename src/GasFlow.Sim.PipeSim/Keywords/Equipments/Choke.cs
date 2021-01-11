@@ -41,8 +41,9 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         /// <summary>
         /// Flow coefficient. This is normally calculated by PIPESIM
         /// </summary>
+        [Range(0, 1.3)]
         public double? FlowCoefficient { get; set; }
-
+        [Range(0.7, 2)]
         public double? FluidSpecificHeatRatio { get; set; }
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         public Meassure MaxWaterRate { get; set; }
     }
 
-    public class ChokeKeyword : IEngineKeyword
+    public class ChokeKeyword : IKeywordWriter
     {
         ChokeData Data { get; set; }
 
@@ -123,6 +124,5 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
 
             return text.ToString();
         }
-
     }
 }

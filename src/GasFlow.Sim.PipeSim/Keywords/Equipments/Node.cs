@@ -19,7 +19,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         public double? MeasuredTemperature { get; set; }
         public double? MeasuredLiquidHoldup { get; set; }
     }
-    public class NodeKeyword : IEngineKeyword
+    public class NodeKeyword : IKeywordWriter
     {
         NodeData Data { get; set; }
         KeywodrdParametr<double?> Distance => new("DISTANCE=", () => Data.Distance);

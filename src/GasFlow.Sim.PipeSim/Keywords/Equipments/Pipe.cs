@@ -19,7 +19,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         public double? WaxConductivity { get; set; }
         public double? DriveRodDiameter { get; set; }
     }
-    public class PipeKeyword : IEngineKeyword
+    public class PipeKeyword : IKeywordWriter
     {
         public PipeData Data { get; set; }
         KeywodrdParametr<double> InternalDiameter => new("ID=", () => Data.InternalDiameter);

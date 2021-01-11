@@ -8,16 +8,33 @@ using System.Reflection;
 
 namespace GasFlow.Sim.PipeSim.Keywords
 {
-    public interface IEngineKeyword
+    public interface IKeywordWriter<T>
     {
-        string WriteText(KeywordOptions options);
+        string Write(T data, KeywordOptions options);
+    }
+
+    public abstract class KeywordWriter<T> : IKeywordWriter<T>
+    {
+        public  KeywordWriter(T data)
+        {
+            Data = data;
+        }
+
+        protected T Data { get;  }
+        public string Write(T data, KeywordOptions options)
+        {
+            var writer = new KeywordWriter<T>(data);
+
+            throw new NotImplementedException();
+        }
+
+        protected abstract string WriteText(KeywordOptions options);
     }
 
     public interface IKeywordParametr
     {
         string Text { get; }
     }
-
 
     public class KeywodrdParametr<T> : IKeywordParametr
     {

@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\ext\Yarus.Energistics\Devkit.Core\Devkit.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Meassures\" />
+  </ItemGroup>
+
 </Project>
