@@ -8,37 +8,20 @@ using System.Reflection;
 
 namespace GasFlow.Sim.PipeSim.Keywords
 {
-    public interface IKeywordWriter<T>
+    public interface IKeywordWriter
     {
-        string Write(T data, KeywordOptions options);
-    }
-
-    public abstract class KeywordWriter<T> : IKeywordWriter<T>
-    {
-        public  KeywordWriter(T data)
-        {
-            Data = data;
-        }
-
-        protected T Data { get;  }
-        public string Write(T data, KeywordOptions options)
-        {
-            var writer = new KeywordWriter<T>(data);
-
-            throw new NotImplementedException();
-        }
-
-        protected abstract string WriteText(KeywordOptions options);
+        string Write(KeywordOptions options);
     }
 
     public interface IKeywordParametr
     {
-        string Text { get; }
+        string ToString();
     }
 
-    public class KeywodrdParametr<T> : IKeywordParametr
+
+    public class KeywordParametr<T> : IKeywordParametr
     {
-        public KeywodrdParametr(string name, Func<T> value, Func<T, bool> valid = null)
+        public KeywordParametr(string name, Func<T> value, Func<T, bool> valid = null)
         {
             Name = name;
             Value = value;
@@ -49,51 +32,45 @@ namespace GasFlow.Sim.PipeSim.Keywords
         public Func<T> Value { get; }
         public Func<T, bool> Valid { get; }
 
-        public virtual string Text
+        public override string ToString()
         {
-            get
+            var v = Value();
+            if (v is null || Valid is not null && !Valid(v)) return string.Empty;
+
+            if (typeof(T).IsEnum)
             {
-                var v = Value();
-                if (v is null || Valid is not null && !Valid(v)) return string.Empty;
-
-                if (typeof(T).IsEnum)
-                {
-                    var attr = v.GetEnumAttribute<T, KeywordAttribute>();
-                    return (attr != null) ? $"{Name}{attr.Keyword}" : $"{Name}{v}";
-                }
-
-                return v switch
-                {
-                    double d => $"{Name}{d.ToString("G", CultureInfo.CreateSpecificCulture("en-En"))}",
-                    string s => string.IsNullOrEmpty(s) ? string.Empty : $"{Name}'{s}'",
-                    Meassure meassure => throw new NotImplementedException(),
-                    _ => throw new NotImplementedException()
-                };
+                var attr = v.GetEnumAttribute<T, KeywordAttribute>();
+                return (attr != null) ? $"{Name}{attr.Keyword}" : $"{Name}{v}";
             }
+
+            return v switch
+            {
+                double d => $"{Name}{d.ToString("G", CultureInfo.CreateSpecificCulture("en-En"))}",
+                string s => string.IsNullOrEmpty(s) ? string.Empty : $"{Name}'{s}'",
+                _ => throw new NotImplementedException()
+            };
         }
     }
 
-    public class MeassureParametr : KeywodrdParametr<Meassure>
+    public class MeassureParametr : KeywordParametr<Meassure>
     {
-        public MeassureParametr(string name, string si, string eng, Func<Meassure> value, Func<Meassure, bool> valid = null) : base(name, value, valid)
+        readonly string _unit;
+        public MeassureParametr(string name, string unit, Func<Meassure> value, Func<Meassure, bool> valid = null) : base(name, value, valid)
         {
-            SiUom = si;
-            EngUom = eng;
+            _unit = unit;
         }
 
-        public string SiUom { get; set; }
-        public string EngUom { get; set; }
-
-        public override string Text
+        public override string ToString()
         {
-            get
-            {
-                var v = Value();
-                if (v is null || Valid is not null && !Valid(v)) return string.Empty;
+            var v = Value();
+            if (v is null || Valid is not null && !Valid(v)) return string.Empty;
+            var converter = new MeassureConverter.Converter();
 
-                return base.Text;
-            }
+            var v1 = converter.Convert(Value().Uom, _unit, Value().Value);
+
+            return v1.Success ?
+                $"{Name}{v1.ConvertedValue.ToString("G", CultureInfo.CreateSpecificCulture("en - En"))}" :
+                throw new ArgumentException("Не удалось сконвертировать");
         }
-    }
 
 }

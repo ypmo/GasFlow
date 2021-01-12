@@ -85,41 +85,41 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         ChokeData Data { get; set; }
 
         [Meassure(ENG = "inch", SI = "mm")]
-        KeywodrdParametr<Meassure> DBEAN => new("DBEAN=", () => Data.Dbean, (v) => true);
+        public IKeywordParametr Dbean => new KeywordParametr<Meassure>("DBEAN=", () => Data.Dbean, (v) => true);
 
-        KeywodrdParametr<CriticalFlowCorrelation?> CriticalCorrelation => new("CCORR=", () => Data.CriticalCorrelation);
-        KeywodrdParametr<SubCriticalFlowCorrelation?> SubCriticalCorrelation => new("SCCORR=", () => Data.SubCriticalCorrelation);
-        KeywodrdParametr<double?> CriticalPressureRatio => new("CPRATIO=", () => Data.CriticalPressureRatio);
+        public IKeywordParametr CriticalCorrelation => new KeywordParametr<CriticalFlowCorrelation?>("CCORR=", () => Data.CriticalCorrelation);
+        public IKeywordParametr SubCriticalCorrelation => new KeywordParametr<SubCriticalFlowCorrelation?>("SCCORR=", () => Data.SubCriticalCorrelation);
+        public IKeywordParametr CriticalPressureRatio => new KeywordParametr<double?>("CPRATIO=", () => Data.CriticalPressureRatio);
         [Meassure(Uno = "%")]
-        KeywodrdParametr<double?> PercentageTolerance => new("TOL=", () => Data.PercentageTolerance);
-        KeywodrdParametr<double?> DischargeCoefficient => new("CD=", () => Data.DischargeCoefficient);
-        KeywodrdParametr<double?> FlowCoefficient => new("CSP=", () => Data.FlowCoefficient);
-        KeywodrdParametr<double?> FluidSpecificHeatRatio => new("CPCV=", () => Data.FluidSpecificHeatRatio);
-        KeywodrdParametr<OnOff?> Verbose => new("VERBOSE=", () => Data.Verbose);
+        public IKeywordParametr PercentageTolerance => new KeywordParametr<double?>("TOL=", () => Data.PercentageTolerance);
+        public IKeywordParametr DischargeCoefficient => new KeywordParametr<double?>("CD=", () => Data.DischargeCoefficient);
+        public IKeywordParametr FlowCoefficient => new KeywordParametr<double?>("CSP=", () => Data.FlowCoefficient);
+        public IKeywordParametr FluidSpecificHeatRatio => new KeywordParametr<double?>("CPCV=", () => Data.FluidSpecificHeatRatio);
+        public IKeywordParametr Verbose => new KeywordParametr<OnOff?>("VERBOSE=", () => Data.Verbose);
 
         [Meassure(ENG = "inch", SI = "mm")]
-        KeywodrdParametr<Meassure> PipeDia => new("PIPEID=", () => Data.PipeDia);
+        public IKeywordParametr PipeDia => new KeywordParametr<Meassure>("PIPEID=", () => Data.PipeDia);
 
         [Meassure(ENG = "lb/sec", SI = "Kg/sec")]
-        KeywodrdParametr<Meassure> MaxMassRate => new("MAXMASS=", () => Data.MaxMassRate);
+        public IKeywordParametr MaxMassRate => new KeywordParametr<Meassure>("MAXMASS=", () => Data.MaxMassRate);
 
         [Meassure(ENG = "mmscfd", SI = "mmsm3d")]
-        KeywodrdParametr<Meassure> MaxGasRate => new("MAXGAS=", () => Data.MaxGasRate);
+        public IKeywordParametr MaxGasRate => new KeywordParametr<Meassure>("MAXGAS=", () => Data.MaxGasRate);
 
         [Meassure(ENG = "sbbl/day", SI = "sm3/day")]
-        KeywodrdParametr<Meassure> MaxGrossLiquidRate => new("MAXLIQUID=", () => Data.MaxGrossLiquidRate);
+        public IKeywordParametr MaxGrossLiquidRate => new KeywordParametr<Meassure>("MAXLIQUID=", () => Data.MaxGrossLiquidRate);
 
         [Meassure(ENG = "sbbl/day", SI = "sm3/day")]
-        KeywodrdParametr<Meassure> MaxOilRate => new("MAXOIL=", () => Data.MaxOilRate);
+        public IKeywordParametr MaxOilRate => new KeywordParametr<Meassure>("MAXOIL=", () => Data.MaxOilRate);
 
         [Meassure(ENG = "sbbl/day", SI = "sm3/day")]
-        KeywodrdParametr<Meassure> MaxWaterRate => new("MAXWATER=", () => Data.MaxWaterRate);
+        public IKeywordParametr MaxWaterRate => new KeywordParametr<Meassure>("MAXWATER=", () => Data.MaxWaterRate);
 
-        public string WriteText(KeywordOptions options)
+        public string Write(KeywordOptions options)
         {
             StringBuilder text = new();
             text.AppendLine("CHOKE")
-                .AppendLine(DBEAN)
+                .AppendLine(Dbean)
                 .AppendLine(CriticalCorrelation);
 
             return text.ToString();

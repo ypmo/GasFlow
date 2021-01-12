@@ -6,6 +6,10 @@ namespace GasFlow.Sim.PipeSim.Keywords
 {
     public static class KeywodrdParametrExtensions
     {
-        public static StringBuilder AppendLine<T>(this StringBuilder stringBuilder, KeywodrdParametr<T> parametr) => string.IsNullOrEmpty(parametr.Text) ? stringBuilder : stringBuilder.AppendLine(parametr.Text);
+        public static StringBuilder AppendLine(this StringBuilder stringBuilder, IKeywordParametr parametr)
+        {
+            var txt = parametr.ToString();
+            return string.IsNullOrEmpty(txt) ? stringBuilder : stringBuilder.AppendLine(txt);
+        }
     }
 }

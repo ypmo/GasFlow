@@ -6,11 +6,11 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
 {
     public enum FlowType
     {
-        [Keyword("TUBING ")]
+        [Keyword("TUBING")]
         Tubing,
         [Keyword("ANNULUS")]
         Annulus,
-        [Keyword("TUBANN ")]
+        [Keyword("TUBANN")]
         Both
     }
 }

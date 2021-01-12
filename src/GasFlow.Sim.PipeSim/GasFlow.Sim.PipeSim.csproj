@@ -19,4 +19,8 @@
     <Folder Include="Meassures\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MeassureConverter" Version="1.1.0" />
+  </ItemGroup>
+
 </Project>

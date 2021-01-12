@@ -9,42 +9,42 @@ namespace GasFlow.Sim.PipeSim.Test
         [Fact]
         public void DoubleToString()
         {
-            var txt = new KeywodrdParametr<double>("KEY=", () => 5.1d).Text;
+            var txt = new KeywordParametr<double>("KEY=", () => 5.1d).Text;
             Assert.Equal("KEY=5.1", txt);
         }
 
         [Fact]
         public void ExponentaToString()
         {
-            var txt = new KeywodrdParametr<double>("KEY=", () => 0.00000000051d).Text;
+            var txt = new KeywordParametr<double>("KEY=", () => 0.00000000051d).Text;
             Assert.Equal("KEY=5.1E-10", txt);
         }
 
         [Fact]
         public void EnumWithOutAttributeToString()
         {
-            var txt = new KeywodrdParametr<SimpleEnum>("KEY=", () => SimpleEnum.Uno).Text;
+            var txt = new KeywordParametr<SimpleEnum>("KEY=", () => SimpleEnum.Uno).Text;
             Assert.Equal("KEY=Uno", txt);
         }
 
         [Fact]
         public void EnumWithAttributeToString()
         {
-            var txt = new KeywodrdParametr<SimpleEnum>("KEY=", () => SimpleEnum.Duo).Text;
+            var txt = new KeywordParametr<SimpleEnum>("KEY=", () => SimpleEnum.Duo).Text;
             Assert.Equal("KEY=TWO", txt);
         }
 
         [Fact]
         public void StringToString()
         {
-            var txt = new KeywodrdParametr<string>("KEY=", () => "Simple").Text;
+            var txt = new KeywordParametr<string>("KEY=", () => "Simple").Text;
             Assert.Equal("KEY='Simple'", txt);
         }
 
         [Fact]
         public void NullToString()
         {
-            var txt = new KeywodrdParametr<string>("KEY=", () => null).Text;
+            var txt = new KeywordParametr<string>("KEY=", () => null).Text;
             Assert.Equal(string.Empty, txt);
         }
 
@@ -58,7 +58,7 @@ namespace GasFlow.Sim.PipeSim.Test
         [Fact]
         public void MeassureToString()
         {
-            var txt = new KeywodrdParametr<Meassure >("KEY=", () => new Meassure() { Value = 0.0, Uom = "m" }).Text;
+            var txt = new KeywordParametr<Meassure >("KEY=", () => new Meassure() { Value = 0.0, Uom = "m" }).Text;
 
         }
     }
