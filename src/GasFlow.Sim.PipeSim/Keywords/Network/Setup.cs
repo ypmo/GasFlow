@@ -15,10 +15,12 @@ namespace GasFlow.Sim.PipeSim.Keywords.Network
         protected SetupKeyword(SetupData data) { Data = data; }
 
         SetupData Data { get; set; }
-        KeywordParametr<string> Title => new("TITLE=",   );
-        public string WriteText(SetupData data, KeywordOptions options)
+        SimpleP<string> Title => new("TITLE=", () => Data.Title);
+
+        public string Write(KeywordOptions options)
         {
             throw new NotImplementedException();
         }
+
     }
 }

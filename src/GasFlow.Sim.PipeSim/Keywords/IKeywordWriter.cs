@@ -13,15 +13,10 @@ namespace GasFlow.Sim.PipeSim.Keywords
         string Write(KeywordOptions options);
     }
 
-    public interface IKeywordParametr
-    {
-        string ToString();
-    }
 
-
-    public class KeywordParametr<T> : IKeywordParametr
+    public class SimpleP<T>
     {
-        public KeywordParametr(string name, Func<T> value, Func<T, bool> valid = null)
+        public SimpleP(string name, Func<T> value, Func<T, bool> valid = null)
         {
             Name = name;
             Value = value;
@@ -32,7 +27,7 @@ namespace GasFlow.Sim.PipeSim.Keywords
         public Func<T> Value { get; }
         public Func<T, bool> Valid { get; }
 
-        public override string ToString()
+        public string Write()
         {
             var v = Value();
             if (v is null || Valid is not null && !Valid(v)) return string.Empty;
@@ -52,25 +47,60 @@ namespace GasFlow.Sim.PipeSim.Keywords
         }
     }
 
-    public class MeassureParametr : KeywordParametr<Meassure>
+    public class MeassureP
     {
-        readonly string _unit;
-        public MeassureParametr(string name, string unit, Func<Meassure> value, Func<Meassure, bool> valid = null) : base(name, value, valid)
+        readonly Uoms uoms;
+        public MeassureP(string name, Uoms uoms, Func<Meassure> value, Func<Meassure, bool> valid = null)
         {
-            _unit = unit;
+            Name = name;
+            Value = value;
+            Valid = valid;
+            this.uoms = uoms;
         }
+        public string Name { get; }
+        public Func<Meassure> Value { get; }
+        public Func<Meassure, bool> Valid { get; }
 
-        public override string ToString()
+        public string Write(UomSystem uomSystem)
         {
+
             var v = Value();
             if (v is null || Valid is not null && !Valid(v)) return string.Empty;
             var converter = new MeassureConverter.Converter();
-
-            var v1 = converter.Convert(Value().Uom, _unit, Value().Value);
+            var uom = uoms.Uom(uomSystem);
+            var v1 = converter.Convert(Value().Uom, uom, Value().Value);
 
             return v1.Success ?
                 $"{Name}{v1.ConvertedValue.ToString("G", CultureInfo.CreateSpecificCulture("en - En"))}" :
                 throw new ArgumentException("Не удалось сконвертировать");
         }
+    }
+    public class MeassureArrayP
+    {
+        readonly Uoms uoms;
+        public MeassureArrayP(string name, Uoms uoms, Func<MeassureArray> value, Func<MeassureArray, bool> valid = null)
+        {
+            Name = name;
+            Value = value;
+            Valid = valid;
+            this.uoms = uoms;
+        }
+        public string Name { get; }
+        public Func<MeassureArray> Value { get; }
+        public Func<MeassureArray, bool> Valid { get; }
 
+        public string Write(UomSystem uomSystem)
+        {
+
+            var v = Value();
+            if (v is null || Valid is not null && !Valid(v)) return string.Empty;
+            var converter = new MeassureConverter.Converter();
+            var uom = uoms.Uom(uomSystem);
+            var v1 = converter.Convert(Value().Uom, uom, Value().Value);
+
+            return v1.Success ?
+                $"{Name}{v1.ConvertedValue.ToString("G", CultureInfo.CreateSpecificCulture("en - En"))}" :
+                throw new ArgumentException("Не удалось сконвертировать");
+        }
+    }
 }

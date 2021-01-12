@@ -6,10 +6,10 @@ namespace GasFlow.Sim.PipeSim.Keywords
 {
     public class KeywordOptions
     {
-        public Unit Unit { get; set; }
+        public UomSystem UomSystem { get; set; }
     }
 
-    public enum Unit
+    public enum UomSystem
     {
         Si,
         Eng

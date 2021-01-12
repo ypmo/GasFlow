@@ -10,12 +10,12 @@ namespace GasFlow.Sim.PipeSim.Keywords.GeneralData
         public UnitType? Output { get; set; }
         public UnitType? All { get; set; }
     }
-    public class UnitsKeyword : IKeywordWriter
+    public class UnitsKeyword 
     {
         public UnitsData Data { get; set; }
-        KeywordParametr<UnitType?> Input => new("INPUT=", () => Data.Input);
-        KeywordParametr<UnitType?> Output => new("OUTPUT=", () => Data.Output);
-        KeywordParametr<UnitType?> All => new("ALL=", () => Data.All);
+        SimpleP<UnitType?> Input => new("INPUT=", () => Data.Input);
+        SimpleP<UnitType?> Output => new("OUTPUT=", () => Data.Output);
+        SimpleP<UnitType?> All => new("ALL=", () => Data.All);
 
         public string WriteText(KeywordOptions options)
         {
