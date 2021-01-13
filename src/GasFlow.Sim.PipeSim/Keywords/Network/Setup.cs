@@ -19,7 +19,11 @@ namespace GasFlow.Sim.PipeSim.Keywords.Network
 
         public string Write(KeywordOptions options)
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new();
+            sb
+                .AppendLine(Title);
+
+            return sb.ToString();
         }
 
     }

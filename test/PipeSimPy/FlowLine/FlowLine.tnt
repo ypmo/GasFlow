@@ -1,4 +1,4 @@
-$#PIPESIM build: 2017.2.1071.0 on 10 ÿםגאנÿ 2021 ד. 22:49:32
+$#PIPESIM build: 2017.2.1071.0 on 14 ÿםגאנÿ 2021 ד. 8:44:41
 setup title = 'FlowLine'
 header		proj = 'FlowLine' user = 'User'
 job		'Network simulation'
@@ -16,16 +16,11 @@ setup algorithm= 'Wegstein'
 setup woflmode=OFF
 
 $*********************************************
-$ FLUID DATA - CFluid  $ Description : 
+$ FLUID DATA - C1  $ Description : 
 $*********************************************
-begin fluid name = 'CFluid'
-CHARACTERIZE package=MFLASH system=MFLASH vshift=MFLASH acf=KESLERLEE therm=MFLASH crit=KESLERLEE bics=OILGAS4
-gfa "QlpoOTFBWSZTWTjEdtYAAWffgF1QUAP/57/HXwC/799gQAMcY2xAChE0UNHoNJkyNNGRkwTINGRiGmgShGiaNFGag0AA0AAA0AHNMTAAmACYAATAAEwKkkTQT0mSbEyDUTeVNGQADDRim1mJpVCN4kqSSGhIldD6Pq8Hgv+L+lvkqC7+/Px6e5xyJ6C/1cn1cXuXufKq" &
-"tlyyTBRGp77rz71YU5r7Wwbb7E9ySZHOnhe5qWuYFM5pDWil1K6gyWFJnCRLn6GHINOpWd73l8msxwKzCJAVVnbiV7hsDCFgZpxFS+MpiyMEdYzIW3KNCcUjUkNImSYoEyk3tK8RSloshXhQrcHxEESJFDgQ/rQZ0sYQyGYzBCjIUAOD5mJ5ViIGUQMgEClKUo99VYVZ" &
-"ZVqxTlXdSypag8nja23qY+FyOLvOURxhZkjGYw0WVwUUBrFLOfstI2klZVApSLwy59B4KXwwMxuGmI46L1nf5yT1eUuhmhpl5aTRQLEebJoSEMSLi5SL75iwsDBD1Sh8u6fNc6mp05m+O8/54r1j7Pi632cE9foh15CqOO95vBjDI65FmqdvCqqi5e6Ymd9F5GZ9yVtY" &
-"RcejMl3BKGHGZ5xXNCozE1JShbh2XKX0ta0tS6y5cs603TKvLO5c5erWvdBe2bJubmLO3y9NieTS3RdNDQsxvOxvjFgqebYspyh6Q7JiplYQ6na82/LhjMqqVTYsqlWYupw1punk1J0r071bF6WQyRkbi5F64+GC0RrNZivmXItaqq0Xcrks36HBr2szm6D2pwaIe1S5" &
-"7OJ7GlPBudSZGp3kYtLta0pKbXaZIZ1zgkZVxgp4OaMgSRCIyZFq0GgMjJiOhkTMOHAIm0lUbSLkkXurOlzF+OfCzoTNNJpUzrGpfJF6XzulzUR62tJjjaLW0Mj4YwylPRwf+LuSKcKEgcYjtrA="
-cemulsion METHOD=SWAP INVERSION=60 
+begin fluid name = 'C1'
+comp file = 'C1.mfl' 
+
 COMPOSITION onecomponent = auto
 end fluid
 
@@ -43,7 +38,7 @@ OVERRIDE
 
 begin branch name='Src 1'
 
-$#PIPESIM build: 2017.2.1071.0 on 10 ÿםגאנÿ 2021 ד. 22:49:32
+$#PIPESIM build: 2017.2.1071.0 on 14 ÿםגאנÿ 2021 ד. 8:44:42
 $ Src 1
 job
 UNITS	input = ENG output = ENG
@@ -56,7 +51,7 @@ $   FLUIDS
 $*********************************************
 
 
-composition USE = 'CFluid' 
+composition USE = 'C1' 
 
 $*********************************************
 $   INLET
@@ -73,6 +68,8 @@ hcorr		type = BBR ffactor = 1 hfactor = 1
 sphase		corr = MOODY
 options		ufactor = 1 
 HEAT		partburymethod = 2009 spifcmethod = BJA mpifcmethod = BJA 
+options		WAXCALC = ON
+options		ASPHALTCALC = ON
 
 FLOWLINE	label='FL 1' uid=1 
 slug		piss = on size = ssb 
@@ -90,7 +87,7 @@ end branch
 
 begin branch name='Sk 1'
 
-$#PIPESIM build: 2017.2.1071.0 on 10 ÿםגאנÿ 2021 ד. 22:49:32
+$#PIPESIM build: 2017.2.1071.0 on 14 ÿםגאנÿ 2021 ד. 8:44:42
 $ Sk 1
 job
 UNITS	input = ENG output = ENG

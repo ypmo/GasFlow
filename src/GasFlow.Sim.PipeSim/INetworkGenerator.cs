@@ -8,6 +8,6 @@ namespace GasFlow.Sim.PipeSim
 {
     public interface INetworkGenerator
     {
-        Task<string> Generate(ProductFlowModel model, ProductVolume volume);
+        string Generate(ProductFlowModel model, ProductVolume volume);
     }
 }

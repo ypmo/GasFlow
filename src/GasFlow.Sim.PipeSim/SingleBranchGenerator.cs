@@ -10,7 +10,7 @@ namespace GasFlow.Sim.PipeSim
 {
     public class SingleBranchGenerator : ISingleBranchGenerator
     {
-        public Task<string> Generate(ProductFlowModel model, ProductVolume volume)
+        public string Generate(ProductFlowModel model, ProductVolume volume)
         {
             var units = model.Network.First().Unit;
             foreach(var unit in units )

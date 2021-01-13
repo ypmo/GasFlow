@@ -8,6 +8,9 @@ namespace GasFlow.Sim.PipeSim
 {
   public   class BranchsResolver
     {
-   //     public Task<IEnumerable< Branch>> GetBranchs(ProductFlowModel model)
+        public IEnumerable< Branch> GetBranchs(ProductFlowModel model)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
