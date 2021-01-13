@@ -96,10 +96,10 @@ namespace GasFlow.Sim.PipeSim.Keywords
             if (v is null || Valid is not null && !Valid(v)) return string.Empty;
             var converter = new MeassureConverter.Converter();
             var uom = uoms.Uom(uomSystem);
-            var v1 = converter.Convert(Value().Uom, uom, Value().Value);
+            var v1 = Value().Value.Select(m=> converter.Convert(Value().Uom, uom, m));
 
-            return v1.Success ?
-                $"{Name}{v1.ConvertedValue.ToString("G", CultureInfo.CreateSpecificCulture("en - En"))}" :
+            return v1.All(i=>i.Success) ?
+                $"{Name}&#123{string.Join(", ", v1.Select(i=> i.ConvertedValue.ToString("G", CultureInfo.CreateSpecificCulture("en - En"))))}&#125" :
                 throw new ArgumentException("Не удалось сконвертировать");
         }
     }
