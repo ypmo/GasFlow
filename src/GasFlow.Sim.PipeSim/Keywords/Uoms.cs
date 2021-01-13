@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace GasFlow.Sim.PipeSim.Keywords
 {
@@ -32,5 +33,40 @@ namespace GasFlow.Sim.PipeSim.Keywords
                   _ => throw new NotImplementedException(),
               };
     }
-
+    public enum SiLength
+    {
+        [XmlEnum("mm")]
+        mm,
+        [XmlEnum("m")]
+        m
+    }
+    public enum EngLength
+    {
+        [XmlEnum("inch")]
+        inch,
+        [XmlEnum("ft")]
+        ft
+    }
+    public enum SiPressure
+    {
+        [XmlEnum("bara")]
+        bara
+    }
+    public enum EngPressure
+    {
+        [XmlEnum("psia")]
+        psia
+    }
+    public enum SiVolumeRate
+    {
+    }
+    public enum EngVolumeRate
+    {
+    }
+    public enum SiMassRate
+    {
+    }
+    public enum EngMassRate
+    {
+    }
 }

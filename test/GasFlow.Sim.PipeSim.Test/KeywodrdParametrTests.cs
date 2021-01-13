@@ -56,10 +56,10 @@ namespace GasFlow.Sim.PipeSim.Test
         }
 
         [Fact]
-        public void MeassureToString()
+        public void MeassureMustDoException()
         {
-            var txt = new SimpleP<Meassure>("KEY=", () => new Meassure() { Value = 0.0, Uom = "m" }).Write();
-
+            var par = new SimpleP<Meassure>("KEY=", () => new Meassure() { Value = 0.0, Uom = "m" });;
+            Assert.Throws<System.NotImplementedException>(()=>par.Write());
         }
     }
 }
