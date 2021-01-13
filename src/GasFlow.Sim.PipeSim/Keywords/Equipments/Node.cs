@@ -19,20 +19,21 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         public double? MeasuredTemperature { get; set; }
         public double? MeasuredLiquidHoldup { get; set; }
     }
-    public class NodeKeyword : IEngineKeyword
+    public class NodeKeyword : IKeywordWriter
     {
         NodeData Data { get; set; }
-        KeywodrdParametr<double?> Distance => new("DISTANCE=", () => Data.Distance);
-        KeywodrdParametr<double?> Elevation => new("ELEVATION=", () => Data.Elevation);
-        KeywodrdParametr<double?> Md => new("MD=", () => Data.Md);
-        KeywodrdParametr<double?> Tvd => new("TVD=", () => Data.Tvd);
-        KeywodrdParametr<double?> AmbientTemperature => new("TEMP=", () => Data.AmbientTemperature);
-        KeywodrdParametr<double?> HeatTransferCoefficient => new("U=", () => Data.HeatTransferCoefficient);
-        KeywodrdParametr<string> Label => new("LABEL=", () => Data.Label);
-        KeywodrdParametr<double?> MeasuredPressure => new("MPRESSURE=", () => Data.MeasuredPressure);
-        KeywodrdParametr<double?> MeasuredTemperature => new("MTEMPERATURE=", () => Data.MeasuredTemperature);
-        KeywodrdParametr<double?> MeasuredLiquidHoldup => new("MHOLDUP=", () => Data.MeasuredLiquidHoldup);
-        public string WriteText()
+        SimpleP<double?> Distance => new("DISTANCE=", () => Data.Distance);
+        SimpleP<double?> Elevation => new("ELEVATION=", () => Data.Elevation);
+        SimpleP<double?> Md => new("MD=", () => Data.Md);
+        SimpleP<double?> Tvd => new("TVD=", () => Data.Tvd);
+        SimpleP<double?> AmbientTemperature => new("TEMP=", () => Data.AmbientTemperature);
+        SimpleP<double?> HeatTransferCoefficient => new("U=", () => Data.HeatTransferCoefficient);
+        SimpleP<string> Label => new("LABEL=", () => Data.Label);
+        SimpleP<double?> MeasuredPressure => new("MPRESSURE=", () => Data.MeasuredPressure);
+        SimpleP<double?> MeasuredTemperature => new("MTEMPERATURE=", () => Data.MeasuredTemperature);
+        SimpleP<double?> MeasuredLiquidHoldup => new("MHOLDUP=", () => Data.MeasuredLiquidHoldup);
+
+        public string Write(KeywordOptions options)
         {
             throw new NotImplementedException();
         }

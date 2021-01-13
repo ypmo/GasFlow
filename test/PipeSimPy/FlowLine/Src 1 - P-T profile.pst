@@ -1,0 +1,74 @@
+$#PIPESIM build: 2017.2.1071.0 on 10 ÿםגאנÿ 2021 ד. 22:49:33
+$ Src 1
+job
+UNITS	input = ENG output = ENG
+OPTIONS ppmethod = 1 thmethod = 1
+PRINT	primary auxiliary echo
+NOPRINT	profile fluid inflow hin hout slug iter
+PRINT	CASES = 1
+OPTIONS   eofs = 1
+OPTIONS gtgradient = ON
+EROSION model = API K = 100 eng
+CORROSION model = DEWAARD efficiency = 1
+SLUG SGLV = MODIFIED
+$*********************************************
+$   OPERATION
+$*********************************************
+plot	casedata jobdata xycase = dc
+itern	type = gflow pout = 290.08 psia  
+
+
+plot profile =+g8
+
+
+plot profile =+F8M24M5N5O5
+
+$*********************************************
+$   FLUIDS
+$*********************************************
+$*********************************************
+$ FLUID DATA - CFluid  $ Description : 
+$*********************************************
+begin fluid name = 'CFluid'
+CHARACTERIZE package=MFLASH system=MFLASH vshift=MFLASH acf=KESLERLEE therm=MFLASH crit=KESLERLEE bics=OILGAS4
+gfa "QlpoOTFBWSZTWTjEdtYAAWffgF1QUAP/57/HXwC/799gQAMcY2xAChE0UNHoNJkyNNGRkwTINGRiGmgShGiaNFGag0AA0AAA0AHNMTAAmACYAATAAEwKkkTQT0mSbEyDUTeVNGQADDRim1mJpVCN4kqSSGhIldD6Pq8Hgv+L+lvkqC7+/Px6e5xyJ6C/1cn1cXuXufKq" &
+"tlyyTBRGp77rz71YU5r7Wwbb7E9ySZHOnhe5qWuYFM5pDWil1K6gyWFJnCRLn6GHINOpWd73l8msxwKzCJAVVnbiV7hsDCFgZpxFS+MpiyMEdYzIW3KNCcUjUkNImSYoEyk3tK8RSloshXhQrcHxEESJFDgQ/rQZ0sYQyGYzBCjIUAOD5mJ5ViIGUQMgEClKUo99VYVZ" &
+"ZVqxTlXdSypag8nja23qY+FyOLvOURxhZkjGYw0WVwUUBrFLOfstI2klZVApSLwy59B4KXwwMxuGmI46L1nf5yT1eUuhmhpl5aTRQLEebJoSEMSLi5SL75iwsDBD1Sh8u6fNc6mp05m+O8/54r1j7Pi632cE9foh15CqOO95vBjDI65FmqdvCqqi5e6Ymd9F5GZ9yVtY" &
+"RcejMl3BKGHGZ5xXNCozE1JShbh2XKX0ta0tS6y5cs603TKvLO5c5erWvdBe2bJubmLO3y9NieTS3RdNDQsxvOxvjFgqebYspyh6Q7JiplYQ6na82/LhjMqqVTYsqlWYupw1punk1J0r071bF6WQyRkbi5F64+GC0RrNZivmXItaqq0Xcrks36HBr2szm6D2pwaIe1S5" &
+"7OJ7GlPBudSZGp3kYtLta0pKbXaZIZ1zgkZVxgp4OaMgSRCIyZFq0GgMjJiOhkTMOHAIm0lUbSLkkXurOlzF+OfCzoTNNJpUzrGpfJF6XzulzUR62tJjjaLW0Mj4YwylPRwf+LuSKcKEgcYjtrA="
+cemulsion METHOD=SWAP INVERSION=60 
+COMPOSITION onecomponent = auto
+end fluid
+
+
+
+composition USE = 'CFluid' 
+
+$*********************************************
+$   INLET
+$*********************************************
+inlet		temp= 68  pres= 580.15  label = 'Src 1' 
+
+
+
+$*********************************************
+   PROFILE
+$*********************************************
+vcorr		type = HBR angle = 44.9999999772279 ffactor = 1 hfactor = 1 
+hcorr		type = BBR ffactor = 1 hfactor = 1 
+sphase		corr = MOODY
+options		ufactor = 1 
+HEAT		partburymethod = 2009 spifcmethod = BJA mpifcmethod = BJA 
+
+FLOWLINE	label='FL 1' uid=1 
+slug		piss = on size = ssb 
+pipe		id = 1.9685  wt = 0.5  roughness = 0.001  flowtype = tubing label = 'FL 1' 
+heat		ifc = input u = input 
+node		dist = 0       elev = 0       temp = 60      u = 0.2     
+node		dist = 1093.6  elev = 10.936  temp = 60      u = 0.2     
+node		dist = 2187.2  elev = 0       temp = 60      u = 0.2     
+node		dist = 3280.8  elev = 0       temp = 60      u = 0.2     
+
+
+
+ENDJOB

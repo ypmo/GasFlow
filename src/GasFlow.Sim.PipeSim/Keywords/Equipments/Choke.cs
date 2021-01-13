@@ -11,7 +11,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         /// Required. Diameter of the choke bean (mm or inches)
         /// </summary>
         [Required]
-        public double Dbean { get; set; }
+        public Meassure Dbean { get; set; }
 
         /// <summary>
         /// Selects the Critical flow correlation
@@ -31,7 +31,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         /// <summary>
         /// Percentage tolerance, for identification of critical flow conditions.
         /// </summary>
-        public double? PercentageTolerance { get; set; }
+        public Meassure PercentageTolerance { get; set; }
 
         /// <summary>
         /// Discharge coefficient (default = 0.6). This value is used to calculate the flow coefficient, CSP
@@ -41,8 +41,9 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         /// <summary>
         /// Flow coefficient. This is normally calculated by PIPESIM
         /// </summary>
+        [Range(0, 1.3)]
         public double? FlowCoefficient { get; set; }
-
+        [Range(0.7, 2)]
         public double? FluidSpecificHeatRatio { get; set; }
 
         /// <summary>
@@ -51,63 +52,67 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         public OnOff? Verbose { get; set; }
 
 
-        public double? PipeDia { get; set; }
+        public Meassure PipeDia { get; set; }
 
         /// <summary>
         /// Maximum mass rate (lb/sec or Kg/sec).
         /// </summary>
-        public double? MaxMassRate { get; set; }
+        public Meassure MaxMassRate { get; set; }
 
         /// <summary>
         /// Maximum gas rate (mmscfd or mmsm3d).
         /// </summary>
-        public double? MaxGasRate { get; set; }
+        public Meassure MaxGasRate { get; set; }
 
         /// <summary>
         /// Maximum gross liquid rate (sbbl/day or sm3/day).
         /// </summary>
-        public double? MaxGrossLiquidRate { get; set; }
+        public Meassure MaxGrossLiquidRate { get; set; }
 
         /// <summary>
         /// Maximum oil rate (sbbl/day or sm3/day).
         /// </summary>
-        public double? MaxOilRate { get; set; }
+        public Meassure MaxOilRate { get; set; }
 
         /// <summary>
         /// Maximum water rate (sbbl/day or sm3/day).
         /// </summary>
-        public double? MaxWaterRate { get; set; }
+        public Meassure MaxWaterRate { get; set; }
     }
 
-    public class ChokeKeyword : IEngineKeyword
+    public class ChokeKeyword : IKeywordWriter
     {
         ChokeData Data { get; set; }
 
-        KeywodrdParametr<double> DBEAN => new("DBEAN=", () => Data.Dbean, (v) => true);
-        KeywodrdParametr<CriticalFlowCorrelation?> CriticalCorrelation => new("CCORR=", () => Data.CriticalCorrelation);
-        KeywodrdParametr<SubCriticalFlowCorrelation?> SubCriticalCorrelation => new("SCCORR=", () => Data.SubCriticalCorrelation);
-        KeywodrdParametr<double?> CriticalPressureRatio => new("CPRATIO=", () => Data.CriticalPressureRatio);
-        KeywodrdParametr<double?> PercentageTolerance => new("TOL=", () => Data.PercentageTolerance);
-        KeywodrdParametr<double?> DischargeCoefficient => new("CD=", () => Data.DischargeCoefficient);
-        KeywodrdParametr<double?> FlowCoefficient => new("CSP=", () => Data.FlowCoefficient);
-        KeywodrdParametr<double?> FluidSpecificHeatRatio => new("CPCV=", () => Data.FluidSpecificHeatRatio);
-        KeywodrdParametr<OnOff?> Verbose => new("VERBOSE=", () => Data.Verbose);
-        KeywodrdParametr<double?> PipeDia => new("PIPEID=", () => Data.PipeDia);
-        KeywodrdParametr<double?> MaxMassRate => new("MAXMASS=", () => Data.MaxMassRate);
-        KeywodrdParametr<double?> MaxGasRate => new("MAXGAS=", () => Data.MaxGasRate);
-        KeywodrdParametr<double?> MaxGrossLiquidRate => new("MAXLIQUID=", () => Data.MaxGrossLiquidRate);
-        KeywodrdParametr<double?> MaxOilRate => new("MAXOIL=", () => Data.MaxOilRate);
-        KeywodrdParametr<double?> MaxWaterRate => new("MAXWATER=", () => Data.MaxWaterRate);
+        MeassureP Dbean => new("DBEAN=", new Uoms("mm", "inch"), () => Data.Dbean);
+        SimpleP<CriticalFlowCorrelation?> CriticalCorrelation => new("CCORR=", () => Data.CriticalCorrelation);
+        SimpleP<SubCriticalFlowCorrelation?> SubCriticalCorrelation => new("SCCORR=", () => Data.SubCriticalCorrelation);
+        SimpleP<double?> CriticalPressureRatio => new("CPRATIO=", () => Data.CriticalPressureRatio);
+        MeassureP PercentageTolerance => new("TOL=", new Uoms("%"), () => Data.PercentageTolerance);
+        SimpleP<double?> DischargeCoefficient => new("CD=", () => Data.DischargeCoefficient);
+        SimpleP<double?> FlowCoefficient => new("CSP=", () => Data.FlowCoefficient);
+        SimpleP<double?> FluidSpecificHeatRatio => new("CPCV=", () => Data.FluidSpecificHeatRatio);
+        SimpleP<OnOff?> Verbose => new("VERBOSE=", () => Data.Verbose);
+        MeassureP PipeDia => new("PIPEID=", new Uoms("mm", "inch"), () => Data.PipeDia);
+        MeassureP MaxMassRate => new("MAXMASS=", new Uoms("Kg/sec", "lb/sec"), () => Data.MaxMassRate);
+        MeassureP MaxGasRate => new("MAXGAS=", new Uoms("mmsm3d", "mmscfd"), () => Data.MaxGasRate);
+        MeassureP MaxGrossLiquidRate => new("MAXLIQUID=", new Uoms("sm3/day", "sbbl/day"), () => Data.MaxGrossLiquidRate);
+        MeassureP MaxOilRate => new("MAXOIL=", new Uoms("sm3/day", "sbbl/day"), () => Data.MaxOilRate);
+        MeassureP MaxWaterRate => new MeassureP("MAXWATER=", new Uoms("sm3/day", "sbbl/day"), () => Data.MaxWaterRate);
 
-        public string WriteText()
+        public string Write(KeywordOptions options)
         {
+            var uomSys = options.UomSystem;
             StringBuilder text = new();
             text.AppendLine("CHOKE")
-                .AppendLine(DBEAN)
+                .AppendLine(Dbean, uomSys)
                 .AppendLine(CriticalCorrelation);
 
             return text.ToString();
         }
-
     }
+
+
+
+
 }

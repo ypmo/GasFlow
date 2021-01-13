@@ -9,39 +9,45 @@ namespace GasFlow.Sim.PipeSim.Test
         [Fact]
         public void DoubleToString()
         {
-            var txt = new KeywodrdParametr<double>("KEY=", () => 5.1d).Text;
+            var txt = new SimpleP<double>("KEY=", () => 5.1d).Write();
             Assert.Equal("KEY=5.1", txt);
         }
+
         [Fact]
         public void ExponentaToString()
         {
-            var txt = new KeywodrdParametr<double>("KEY=", () => 0.00000000051d).Text;
+            var txt = new SimpleP<double>("KEY=", () => 0.00000000051d).Write();
             Assert.Equal("KEY=5.1E-10", txt);
         }
+
         [Fact]
         public void EnumWithOutAttributeToString()
         {
-            var txt = new KeywodrdParametr<SimpleEnum>("KEY=", () => SimpleEnum.Uno).Text;
+            var txt = new SimpleP<SimpleEnum>("KEY=", () => SimpleEnum.Uno).Write();
             Assert.Equal("KEY=Uno", txt);
         }
+
         [Fact]
         public void EnumWithAttributeToString()
         {
-            var txt = new KeywodrdParametr<SimpleEnum>("KEY=", () => SimpleEnum.Duo).Text;
+            var txt = new SimpleP<SimpleEnum>("KEY=", () => SimpleEnum.Duo).Write();
             Assert.Equal("KEY=TWO", txt);
         }
+
         [Fact]
         public void StringToString()
         {
-            var txt = new KeywodrdParametr<string>("KEY=", () => "Simple").Text;
+            var txt = new SimpleP<string>("KEY=", () => "Simple").Write();
             Assert.Equal("KEY='Simple'", txt);
         }
+
         [Fact]
         public void NullToString()
         {
-            var txt = new KeywodrdParametr<string>("KEY=", () => null).Text;
+            var txt = new SimpleP<string>("KEY=", () => null).Write();
             Assert.Equal(string.Empty, txt);
         }
+
         public enum SimpleEnum
         {
             Uno,
@@ -49,5 +55,11 @@ namespace GasFlow.Sim.PipeSim.Test
             Duo
         }
 
+        [Fact]
+        public void MeassureToString()
+        {
+            var txt = new SimpleP<Meassure>("KEY=", () => new Meassure() { Value = 0.0, Uom = "m" }).Write();
+
+        }
     }
 }

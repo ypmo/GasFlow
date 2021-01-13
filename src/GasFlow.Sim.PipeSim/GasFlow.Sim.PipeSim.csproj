@@ -15,4 +15,12 @@
     <ProjectReference Include="..\..\ext\Yarus.Energistics\Devkit.Core\Devkit.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Meassures\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MeassureConverter" Version="1.1.0" />
+  </ItemGroup>
+
 </Project>
