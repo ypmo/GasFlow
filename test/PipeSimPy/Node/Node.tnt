@@ -1,0 +1,185 @@
+$#PIPESIM build: 2017.2.1071.0 on 15 ÿםגאנÿ 2021 ד. 12:04:55
+setup title = 'Node'
+header		proj = 'Node' user = 'User'
+job		'Network simulation'
+PRINT	primary auxiliary echo
+NOPRINT	profile fluid inflow hin hout slug iter
+PRINT	CASES = 1
+SETUP  OPTIONS=NET
+OPTIONS   eofs = 1
+OPTIONS gtgradient = ON
+UNITS	input = ENG output = ENG
+setup comp=on
+setup print=net
+setup tol= 0.01  maxiter= 100
+setup algorithm= 'Wegstein'
+setup woflmode=OFF
+
+$*********************************************
+$ FLUID DATA - C1  $ Description : 
+$*********************************************
+begin fluid name = 'C1'
+comp file = 'C1.mfl' 
+
+COMPOSITION onecomponent = auto
+end fluid
+
+
+branch name='Src 2' file='*inline' start='Src 2' end='J' 
+branch name='Src 1' file='*inline' start='Src 1' end='J' 
+branch name='Sk' file='*inline' start='J' end='Sk' 
+
+source name='Src 2' temp F=50  uid=4 pres psia=725.19 
+source name='Src 1' temp F=68  uid=5 pres psia=725.19 
+sink name='Sk' pres psia=710.68 uid=6 
+junction name='J' uid=7 
+
+
+plot profile =+g8
+
+OVERRIDE
+
+begin branch name='Src 2'
+
+$#PIPESIM build: 2017.2.1071.0 on 15 ÿםגאנÿ 2021 ד. 12:04:56
+$ Src 2
+job
+UNITS	input = ENG output = ENG
+OPTIONS ppmethod = 1 thmethod = 1
+EROSION model = API K = 100 eng
+CORROSION model = DEWAARD efficiency = 1
+SLUG SGLV = MODIFIED
+$*********************************************
+$   FLUIDS
+$*********************************************
+
+
+composition USE = 'C1' 
+
+$*********************************************
+$   INLET
+$*********************************************
+inlet		temp= 50  pres= 725.19  label = 'Src 2' 
+
+
+
+$*********************************************
+   PROFILE
+$*********************************************
+vcorr		type = HBR angle = 44.9999999772279 ffactor = 1 hfactor = 1 
+hcorr		type = BBR ffactor = 1 hfactor = 1 
+sphase		corr = MOODY
+options		ufactor = 1 
+HEAT		partburymethod = 2009 spifcmethod = BJA mpifcmethod = BJA 
+options		WAXCALC = ON
+options		ASPHALTCALC = ON
+
+FLOWLINE	label='FL 2' uid=1 
+slug		piss = on size = ssb 
+pipe		id = 10  wt = 0.5  roughness = 0.001  flowtype = tubing label = 'FL 2' 
+heat		ifc = input u = input 
+node		dist = 0       elev = 0       temp = 60      u = 0.2     
+node		dist = 100     elev = 1       temp = 60      u = 0.2     
+node		dist = 200     elev = 0       temp = 60      u = 0.2     
+
+
+
+ENDJOB
+
+end branch
+
+begin branch name='Src 1'
+
+$#PIPESIM build: 2017.2.1071.0 on 15 ÿםגאנÿ 2021 ד. 12:04:56
+$ Src 1
+job
+UNITS	input = ENG output = ENG
+OPTIONS ppmethod = 1 thmethod = 1
+EROSION model = API K = 100 eng
+CORROSION model = DEWAARD efficiency = 1
+SLUG SGLV = MODIFIED
+$*********************************************
+$   FLUIDS
+$*********************************************
+
+
+composition USE = 'C1' 
+
+$*********************************************
+$   INLET
+$*********************************************
+inlet		temp= 68  pres= 725.19  label = 'Src 1' 
+
+
+
+$*********************************************
+   PROFILE
+$*********************************************
+vcorr		type = HBR angle = 44.9999999772279 ffactor = 1 hfactor = 1 
+hcorr		type = BBR ffactor = 1 hfactor = 1 
+sphase		corr = MOODY
+options		ufactor = 1 
+HEAT		partburymethod = 2009 spifcmethod = BJA mpifcmethod = BJA 
+options		WAXCALC = ON
+options		ASPHALTCALC = ON
+
+FLOWLINE	label='FL 1' uid=2 
+slug		piss = on size = ssb 
+pipe		id = 10  wt = 0.5  roughness = 0.001  flowtype = tubing label = 'FL 1' 
+heat		ifc = input u = input 
+node		dist = 0       elev = 0       temp = 60      u = 0.2     
+node		dist = 150     elev = 1.5     temp = 60      u = 0.2     
+node		dist = 300     elev = 0       temp = 60      u = 0.2     
+
+
+
+ENDJOB
+
+end branch
+
+begin branch name='Sk'
+
+$#PIPESIM build: 2017.2.1071.0 on 15 ÿםגאנÿ 2021 ד. 12:04:56
+$ Sk
+job
+UNITS	input = ENG output = ENG
+OPTIONS ppmethod = 1 thmethod = 1
+EROSION model = API K = 100 eng
+CORROSION model = DEWAARD efficiency = 1
+SLUG SGLV = MODIFIED
+$*********************************************
+$   FLUIDS
+$*********************************************
+
+
+$*********************************************
+$   INLET
+$*********************************************
+
+
+$*********************************************
+   PROFILE
+$*********************************************
+
+vcorr		type = HBR angle = 44.9999999772279 ffactor = 1 hfactor = 1 
+hcorr		type = BBR ffactor = 1 hfactor = 1 
+sphase		corr = MOODY
+options		ufactor = 1 
+HEAT		partburymethod = 2009 spifcmethod = BJA mpifcmethod = BJA 
+options		WAXCALC = ON
+options		ASPHALTCALC = ON
+
+FLOWLINE	label='FL 3' uid=3 
+slug		piss = on size = ssb 
+pipe		id = 3.937  wt = 0.5  roughness = 0.001  flowtype = tubing label = 'FL 3' 
+heat		ifc = input u = input 
+node		dist = 0       elev = 0       temp = 60      u = 0.2     
+node		dist = 250     elev = 2.5     temp = 60      u = 0.2     
+node		dist = 500     elev = 0       temp = 60      u = 0.2     
+
+
+
+ENDJOB
+
+end branch
+

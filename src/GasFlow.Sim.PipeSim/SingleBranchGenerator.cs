@@ -12,8 +12,11 @@ namespace GasFlow.Sim.PipeSim
     {
         public string Generate(ProductFlowModel model, ProductVolume volume)
         {
-            var units = model.Network.First().Unit;
-            foreach(var unit in units )
+            var network = model.Network.Single();
+            var globalInplet = network.Port.SingleOrDefault(t => t.Direction == ProductFlowPortType.inlet);
+            var globalOutplet = network.Port.SingleOrDefault(t => t.Direction == ProductFlowPortType.outlet);
+
+            foreach (var unit in network.Unit)
             {
                 var facilityKind = unit.Facility.Kind;
                 //var t = facilityKind switch
@@ -23,5 +26,7 @@ namespace GasFlow.Sim.PipeSim
             }
             throw new NotImplementedException();
         }
+
+        
     }
 }

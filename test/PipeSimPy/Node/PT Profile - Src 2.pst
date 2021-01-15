@@ -1,0 +1,69 @@
+$#PIPESIM build: 2017.2.1071.0 on 15 ÿםגאנÿ 2021 ד. 12:04:56
+$ Src 2
+job
+UNITS	input = ENG output = ENG
+OPTIONS ppmethod = 1 thmethod = 1
+PRINT	primary auxiliary echo
+NOPRINT	profile fluid inflow hin hout slug iter
+PRINT	CASES = 1
+OPTIONS   eofs = 1
+OPTIONS gtgradient = ON
+EROSION model = API K = 100 eng
+CORROSION model = DEWAARD efficiency = 1
+SLUG SGLV = MODIFIED
+$*********************************************
+$   OPERATION
+$*********************************************
+plot	casedata jobdata xycase = dc
+itern	type = lflow 
+
+
+plot profile =+g8
+
+
+plot profile =+F8M24M5N5O5
+
+$*********************************************
+$   FLUIDS
+$*********************************************
+$*********************************************
+$ FLUID DATA - C1  $ Description : 
+$*********************************************
+begin fluid name = 'C1'
+comp file = 'C1.mfl' 
+
+COMPOSITION onecomponent = auto
+end fluid
+
+
+
+composition USE = 'C1' 
+
+$*********************************************
+$   INLET
+$*********************************************
+inlet		temp= 50  pres= 725.19  label = 'Src 2' 
+
+
+
+$*********************************************
+   PROFILE
+$*********************************************
+vcorr		type = HBR angle = 44.9999999772279 ffactor = 1 hfactor = 1 
+hcorr		type = BBR ffactor = 1 hfactor = 1 
+sphase		corr = MOODY
+options		ufactor = 1 
+HEAT		partburymethod = 2009 spifcmethod = BJA mpifcmethod = BJA 
+options		WAXCALC = ON
+options		ASPHALTCALC = ON
+
+FLOWLINE	label='FL 2' uid=1 
+slug		piss = on size = ssb 
+pipe		id = 10  wt = 0.5  roughness = 0.001  flowtype = tubing label = 'FL 2' 
+heat		ifc = input u = input 
+node		dist = 0       elev = 0       temp = 60      u = 0.2     
+node		dist = 100     elev = 1       temp = 60      u = 0.2     
+node		dist = 200     elev = 0       temp = 60      u = 0.2     
+
+
+ENDJOB
