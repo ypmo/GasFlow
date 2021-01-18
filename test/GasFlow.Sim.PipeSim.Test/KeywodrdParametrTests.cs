@@ -61,7 +61,7 @@ namespace GasFlow.Sim.PipeSim.Test
             [Keyword("TWO")]
             Duo
         }
-
+        
         [Fact]
         public void MeassureMustDoException()
         {

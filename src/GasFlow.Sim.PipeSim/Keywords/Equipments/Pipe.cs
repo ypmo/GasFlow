@@ -1,51 +1,76 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace GasFlow.Sim.PipeSim.Keywords.Equipments
 {
     public class PipeData
     {
         /// <summary>
-        /// Pipe Internal diameter 
+        /// Pipe Internal diameter
         /// </summary>
+        [Keyword("ID=")]
+        [Uom(SiLength.mm, EngLength.inch)]
         public Meassure InternalDiameter { get; set; }
+
         /// <summary>
-        /// Pipe wall thickness 
+        /// Pipe wall thickness
         /// </summary>
+        [Keyword("WT=")]
+        [Uom(SiLength.mm, EngLength.inch)]
         public Meassure WallThickness { get; set; }
+
         /// <summary>
-        /// Pipe roughness 
+        /// Pipe roughness
         /// </summary>
+        [Keyword("ROUGHNESS=")]
+        [Uom(SiLength.mm, EngLength.inch)]
         public Meassure Roughness { get; set; }
+
         /// <summary>
-        /// Annulus inside Diameter 
+        /// Annulus inside Diameter
         /// </summary>
+        [Keyword("AID=")]
+        [Uom(SiLength.mm, EngLength.inch)]
         public Meassure AnnulusInsideDiameter { get; set; }
+
         /// <summary>
-        /// Annulus Outside Diameter 
+        /// Annulus Outside Diameter
         /// </summary>
+        [Keyword("AOD=")]
+        [Uom(SiLength.mm, EngLength.inch)]
         public Meassure AnnulusOutsideDiameter { get; set; }
+
         /// <summary>
         /// Specifies the flowpath for a tubing/annulus system.
         /// </summary>
+        [Keyword("FLOWTYPE=")]
         public FlowType? FlowType { get; set; }
+
         /// <summary>
         /// Pipe thermal conductivity
         /// </summary>
+        [Keyword("CONDUCTIVITY=")]
+        [Uom(SiThermalConductivity.WmK, EngThermalConductivity.BtuHrFtF)]
         public Meassure Conductivity { get; set; }
+
         /// <summary>
-        /// The thickness of a coating of wax that exists on the inside of the pipe 
+        /// The thickness of a coating of wax that exists on the inside of the pipe
         /// </summary>
+        [Keyword("WAXTHICKNESS=")]
+        [Uom(SiLength.mm, EngLength.inch)]
         public Meassure WaxThickness { get; set; }
+
         /// <summary>
         /// The thermal Conductivity of the wax (
         /// </summary>
+        [Keyword("WAXK=")]
+        [Uom(SiThermalConductivity.WmK, EngThermalConductivity.BtuHrFtF)]
         public Meassure WaxConductivity { get; set; }
+
         /// <summary>
         /// Drive rod diameter.
         /// </summary>
+        [Keyword("RODDIAM=")]
+        [Uom(SiLength.mm, EngLength.inch)]
         public Meassure DriveRodDiameter { get; set; }
 
         /// <summary>
@@ -62,16 +87,6 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
     public class PipeKeyword : IKeywordWriter
     {
         public PipeData Data { get; set; }
-        MeassureP InternalDiameter => new("ID=", new Uoms("mm", "inch"), Data.InternalDiameter);
-        MeassureP WallThickness => new("WT=", new Uoms("mm", "inch"), Data.WallThickness);
-        MeassureP Roughness => new("ROUGHNESS=", new Uoms("mm", "inch"), Data.Roughness);
-        MeassureP AnnulusInsideDiameter => new("AID=", new Uoms("mm", "inch"), Data.AnnulusInsideDiameter);
-        MeassureP AnnulusOutsideDiameter => new("AOD=", new Uoms("mm", "inch"), Data.AnnulusOutsideDiameter);
-        SimpleP<FlowType?> FlowType => new("ID=", Data.FlowType);
-        MeassureP Conductivity => new("CONDUCTIVITY=", new Uoms("W/m/K", "Btu/hr/ft/F"), Data.Conductivity);
-        MeassureP WaxThickness => new("WAXTHICKNESS=", new Uoms("mm", "inch"), Data.WaxThickness);
-        MeassureP WaxConductivity => new("WAXK=", new Uoms("W/m/K", "Btu/hr/ft/F"), Data.WaxConductivity);
-        MeassureP DriveRodDiameter => new("RODDIAM=", new Uoms("mm", "inch"), Data.DriveRodDiameter);
         MeassureP InLineHeater => new("ILHMAXPOWER=", new Uoms("Kw/m", "BTU/hr/ft"), Data.InLineHeater);
         MeassureP MinimumTemperature => new("ILHMINTEMP=", new Uoms("Kw/m", "BTU/hr/ft"), Data.MinimumTemperature);
 

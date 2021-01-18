@@ -28,6 +28,4 @@ namespace GasFlow.Sim.PipeSim.Keywords
             return new MeassureArrayP(keyword, uons, value, valid);
         }
     }
-
-
 }

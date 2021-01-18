@@ -41,15 +41,16 @@ namespace GasFlow.Sim.PipeSim.Keywords
 
     public class MeassureP
     {
-        readonly Uoms uoms;
+
         public MeassureP(string name, Uoms uoms, Meassure value, Func<Meassure, bool> valid = null)
         {
             Name = name;
             Value = value;
             Valid = valid;
-            this.uoms = uoms;
+            Uoms = uoms;
         }
         public string Name { get; }
+        public Uoms Uoms { get; set; }
         public Meassure Value { get; }
         public Func<Meassure, bool> Valid { get; }
 
@@ -59,7 +60,7 @@ namespace GasFlow.Sim.PipeSim.Keywords
 
             if (Value is null || Valid is not null && !Valid(Value)) return string.Empty;
             var converter = new MeassureConverter.Converter();
-            var uom = uoms.Uom(uomSystem);
+            var uom = Uoms.Uom(uomSystem);
             var v1 = converter.Convert(Value.Uom, uom, Value.Value);
 
             return v1.Success ?

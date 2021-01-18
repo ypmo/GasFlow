@@ -12,7 +12,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         /// </summary>
         [Required]
         [Keyword("DBEAN=")]
-        [UomLength(SiLength.mm, EngLength.inch)]
+        [Uom(SiLength.mm, EngLength.inch)]
         public Meassure Dbean { get; set; }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         public OnOff? Verbose { get; set; }
 
         [Keyword("PIPEID=")]
-        [UomLength(SiLength.mm, EngLength.inch)]
+        [Uom(SiLength.mm, EngLength.inch)]
         public Meassure PipeDia { get; set; }
 
         /// <summary>

@@ -29,23 +29,90 @@ namespace GasFlow.Sim.PipeSim.Keywords
         public string SI { get; set; }
         public string ENG { get; set; }
         public string Uno { get; set; }
-    }
 
-    public static class  UomAttributeExtensions
-    {
-        public static Uoms Uoms (this UomAttribute attribute)
+        //Extensions CTORs
+        private void setUoms<TS, TE>(TS si, TE eng)
         {
-            return new Uoms() { SI = attribute.SI, ENG = attribute.ENG, Uno = attribute.Uno };
-        }
-    }
-
-    public class UomLengthAttribute : UomAttribute
-    {
-        public UomLengthAttribute(SiLength si, EngLength eng) : base()
-        {
-            SI = si.GetEnumAttribute<SiLength, XmlEnumAttribute>()?.Name ?? si.ToString();
-            ENG = eng.GetEnumAttribute<EngLength, XmlEnumAttribute>()?.Name ?? si.ToString();
+            SI = si.GetEnumAttribute<TS, XmlEnumAttribute>()?.Name ?? si.ToString();
+            ENG = eng.GetEnumAttribute<TE, XmlEnumAttribute>()?.Name ?? si.ToString();
         }
 
+        public UomAttribute(SiLength si, EngLength eng) => setUoms(si, eng);
+        public UomAttribute(SiTemp si, EngTemp eng) => setUoms(si, eng);
+        public UomAttribute(SiHeatTransfer si, EngHeatTransfer eng) => setUoms(si, eng);
+        public UomAttribute(SiThermalConductivity si, EngThermalConductivity eng) => setUoms(si, eng);
+        public UomAttribute(SiPressure si, EngPressure eng) => setUoms(si, eng);
+
+    }
+
+
+
+    public enum SiLength
+    {
+        [XmlEnum("mm")]
+        mm,
+        [XmlEnum("m")]
+        m
+    }
+
+    public enum EngLength
+    {
+        [XmlEnum("inch")]
+        inch,
+        [XmlEnum("ft")]
+        ft
+    }
+
+    public enum SiTemp
+    {
+        [XmlEnum("C")]
+        C
+    }
+
+    public enum EngTemp
+    {
+        [XmlEnum("F")]
+        F
+    }
+
+    public enum SiHeatTransfer
+    {
+        [XmlEnum("W/m2/K")]
+        Wm2K
+    }
+
+    public enum EngHeatTransfer
+    {
+        [XmlEnum("Btu/hr/ft2/F")]
+        BtuHrFt2F
+    }
+
+
+    public enum SiThermalConductivity
+    {
+        [XmlEnum("W/m/K")]
+        WmK
+    }
+
+    public enum EngThermalConductivity
+    {
+        [XmlEnum("Btu/hr/ft/F")]
+        BtuHrFtF
+    }
+
+    public enum SiPressure
+    {
+        [XmlEnum("bara")]
+        bara,
+        [XmlEnum("bar")]
+        bar
+    }
+
+    public enum EngPressure
+    {
+        [XmlEnum("psia")]
+        psia,
+        [XmlEnum("psi")]
+        psi
     }
 }
