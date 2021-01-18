@@ -8,7 +8,7 @@ namespace GasFlow.Sim.PipeSim
 {
     public interface ISingleBranchGenerator
     {
-        Task<string> Generate(ProductFlowModel model, ProductVolume volume);
+        string Generate(ProductFlowModel model, ProductVolume volume);
     }
 
 }

@@ -15,11 +15,15 @@ namespace GasFlow.Sim.PipeSim.Keywords.Network
         protected SetupKeyword(SetupData data) { Data = data; }
 
         SetupData Data { get; set; }
-        SimpleP<string> Title => new("TITLE=", () => Data.Title);
+        SimpleP<string> Title => new("TITLE=", Data.Title);
 
         public string Write(KeywordOptions options)
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new();
+            sb
+                .AppendLine(Title);
+
+            return sb.ToString();
         }
 
     }

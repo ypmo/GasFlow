@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<!--This is a Pipesim-Net Solution XML file created on 14/01/21 at 09:17:00-->
+<root xmlns="http://tempuri.org/XMLSchema.xsd">
+<model>
+<name>FlowLine</name>
+<cases>
+<case>
+<name>Network</name>
+<caseprops>
+<caseprop name="ConvergenceResidual" type="xsd:double">0</caseprop>
+<caseprop name="MaterialBalanceResidual" type="xsd:double">7.863467940859132e-9</caseprop>
+<caseprop name="IsConverged" type="xsd:boolean">true</caseprop>
+</caseprops>
+<items>
+<item>
+<name>Sk 1</name>
+<itemprops type="BRANCH IN">
+<itemprop name="FluidHandle" type="xsd:string">0D2A60C9</itemprop>
+<itemprop name="NumberOfEquipment" type="xsd:double">0</itemprop>
+<itemprop name="UpstreamEquipmentType" type="xsd:string">NONE</itemprop>
+<itemprop name="DownstreamEquipmentType" type="xsd:string">NONE</itemprop>
+<itemprop name="Pressure" type="xsd:double">417.942000200878</itemprop>
+<itemprop name="Temperature" type="xsd:double">58.3099230094923</itemprop>
+<itemprop name="MeanVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="LiquidVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="GasVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="ErosionVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="ErosionRatio" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxMeanVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxLiquidVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxGasVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxErosionVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxErosionRatio" type="xsd:double">-1e+31</itemprop>
+<itemprop name="StockTankLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="StockTankGasVolumeFlowRate" type="xsd:double">3.53150004380835</itemprop>
+<itemprop name="StockTankMassFlowRate" type="xsd:double">1.73144758264243</itemprop>
+<itemprop name="FlowingLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="FlowingGasVolumeFlowRate" type="xsd:double">.117033313385158</itemprop>
+<itemprop name="StockTankGLR" type="xsd:double">1e+31</itemprop>
+<itemprop name="StockTankLGR" type="xsd:double">0</itemprop>
+<itemprop name="StockTankWatercut" type="xsd:double">0</itemprop>
+<itemprop name="FlowingWatercut" type="xsd:double">0</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Sk 1</name>
+<itemprops type="BRANCH OUT">
+<itemprop name="FluidHandle" type="xsd:string">0D2A60C9</itemprop>
+<itemprop name="DownstreamEquipmentType" type="xsd:string">NONE</itemprop>
+<itemprop name="Pressure" type="xsd:double">417.942000200878</itemprop>
+<itemprop name="Temperature" type="xsd:double">58.3099230094923</itemprop>
+<itemprop name="MeanVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="LiquidVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="GasVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="ErosionVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="ErosionRatio" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxMeanVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxLiquidVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxGasVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxErosionVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxErosionRatio" type="xsd:double">-1e+31</itemprop>
+<itemprop name="StockTankLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="StockTankGasVolumeFlowRate" type="xsd:double">3.53150004380835</itemprop>
+<itemprop name="StockTankMassFlowRate" type="xsd:double">1.73144758264243</itemprop>
+<itemprop name="FlowingLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="FlowingGasVolumeFlowRate" type="xsd:double">.117033313385158</itemprop>
+<itemprop name="StockTankGLR" type="xsd:double">1e+31</itemprop>
+<itemprop name="StockTankLGR" type="xsd:double">0</itemprop>
+<itemprop name="StockTankWatercut" type="xsd:double">0</itemprop>
+<itemprop name="FlowingWatercut" type="xsd:double">0</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Sk 1</name>
+<itemprops type="BRANCH GLOBAL">
+<itemprop name="FlowDirection" type="xsd:string">forward</itemprop>
+<itemprop name="BranchPressureDrop" type="xsd:double">0</itemprop>
+<itemprop name="BranchTemperatureDrop" type="xsd:double">0</itemprop>
+<itemprop name="MaxPressure" type="xsd:double">417.942000200878</itemprop>
+<itemprop name="ErosionRate" type="xsd:double">-1e+31</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Sk 1</name>
+<itemprops type="BRANCH GLOBAL">
+<itemprop name="FluidHandle" type="xsd:string">0D2A60C9</itemprop>
+<itemprop name="MassLoss" type="xsd:double">0</itemprop>
+<itemprop name="HeatLoss" type="xsd:double">0</itemprop>
+<itemprop name="FlowingGasHoldup" type="xsd:double">0</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Src 1</name>
+<itemprops type="BRANCH IN">
+<itemprop name="FluidHandle" type="xsd:string">0D2A60C9</itemprop>
+<itemprop name="NumberOfEquipment" type="xsd:double">1</itemprop>
+<itemprop name="UpstreamEquipmentType" type="xsd:string">NONE</itemprop>
+<itemprop name="DownstreamEquipmentType" type="xsd:string">PIPESECTOR</itemprop>
+<itemprop name="Pressure" type="xsd:double">580.15</itemprop>
+<itemprop name="Temperature" type="xsd:double">68</itemprop>
+<itemprop name="MeanVelocity" type="xsd:double">46.2929488440636</itemprop>
+<itemprop name="LiquidVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="GasVelocity" type="xsd:double">46.2929488440636</itemprop>
+<itemprop name="ErosionVelocity" type="xsd:double">75.1712661391645</itemprop>
+<itemprop name="ErosionRatio" type="xsd:double">.615833033307721</itemprop>
+<itemprop name="MaxMeanVelocity" type="xsd:double">64.0865002453745</itemprop>
+<itemprop name="MaxLiquidVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxGasVelocity" type="xsd:double">64.0865002453745</itemprop>
+<itemprop name="MaxErosionVelocity" type="xsd:double">88.4459029439266</itemprop>
+<itemprop name="MaxErosionRatio" type="xsd:double">.724584159494696</itemprop>
+<itemprop name="StockTankLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="StockTankGasVolumeFlowRate" type="xsd:double">3.5315</itemprop>
+<itemprop name="StockTankMassFlowRate" type="xsd:double">1.73144756116378</itemprop>
+<itemprop name="FlowingLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="FlowingGasVolumeFlowRate" type="xsd:double">8.453007196250779e-2</itemprop>
+<itemprop name="StockTankGLR" type="xsd:double">1e+31</itemprop>
+<itemprop name="StockTankLGR" type="xsd:double">0</itemprop>
+<itemprop name="StockTankWatercut" type="xsd:double">0</itemprop>
+<itemprop name="FlowingWatercut" type="xsd:double">0</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Src 1-Equip[1]</name>
+<itemprops type="PIPESECTOR">
+<itemprop name="EquipmentPressureDrop" type="xsd:double">162.207999799122</itemprop>
+<itemprop name="EquipmentTemperatureDrop" type="xsd:double">9.69007699050774</itemprop>
+<itemprop name="EquipmentPower" type="xsd:double">-1e+31</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Src 1</name>
+<itemprops type="BRANCH OUT">
+<itemprop name="FluidHandle" type="xsd:string">0D2A60C9</itemprop>
+<itemprop name="UpstreamEquipmentType" type="xsd:string">PIPESECTOR</itemprop>
+<itemprop name="UpstreamEquipmentType" type="xsd:string">NONE</itemprop>
+<itemprop name="DownstreamEquipmentType" type="xsd:string">NONE</itemprop>
+<itemprop name="Pressure" type="xsd:double">417.942000200878</itemprop>
+<itemprop name="Temperature" type="xsd:double">58.3099230094923</itemprop>
+<itemprop name="MeanVelocity" type="xsd:double">64.0865002453745</itemprop>
+<itemprop name="LiquidVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="GasVelocity" type="xsd:double">64.0865002453745</itemprop>
+<itemprop name="ErosionVelocity" type="xsd:double">88.4459029439266</itemprop>
+<itemprop name="ErosionRatio" type="xsd:double">.724584159494696</itemprop>
+<itemprop name="MaxMeanVelocity" type="xsd:double">64.0865002453745</itemprop>
+<itemprop name="MaxLiquidVelocity" type="xsd:double">-1e+31</itemprop>
+<itemprop name="MaxGasVelocity" type="xsd:double">64.0865002453745</itemprop>
+<itemprop name="MaxErosionVelocity" type="xsd:double">88.4459029439266</itemprop>
+<itemprop name="MaxErosionRatio" type="xsd:double">.724584159494696</itemprop>
+<itemprop name="StockTankLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="StockTankGasVolumeFlowRate" type="xsd:double">3.5315</itemprop>
+<itemprop name="StockTankMassFlowRate" type="xsd:double">1.73144756116378</itemprop>
+<itemprop name="FlowingLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="FlowingGasVolumeFlowRate" type="xsd:double">.117033311933357</itemprop>
+<itemprop name="StockTankGLR" type="xsd:double">1e+31</itemprop>
+<itemprop name="StockTankLGR" type="xsd:double">0</itemprop>
+<itemprop name="StockTankWatercut" type="xsd:double">0</itemprop>
+<itemprop name="FlowingWatercut" type="xsd:double">0</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Src 1</name>
+<itemprops type="BRANCH GLOBAL">
+<itemprop name="FlowDirection" type="xsd:string">forward</itemprop>
+<itemprop name="BranchPressureDrop" type="xsd:double">162.207999799122</itemprop>
+<itemprop name="BranchTemperatureDrop" type="xsd:double">9.69007699050774</itemprop>
+<itemprop name="MaxPressure" type="xsd:double">580.15</itemprop>
+<itemprop name="ErosionRate" type="xsd:double">-1e+31</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Src 1</name>
+<itemprops type="BRANCH GLOBAL">
+<itemprop name="FluidHandle" type="xsd:string">0D2A60C9</itemprop>
+<itemprop name="MassLoss" type="xsd:double">0</itemprop>
+<itemprop name="HeatLoss" type="xsd:double">1794.47479582752</itemprop>
+<itemprop name="FlowingGasHoldup" type="xsd:double">69.3413766707714</itemprop>
+</itemprops>
+</item>
+<item>
+<name>FL 1</name>
+<itemprops type="JUNCTION">
+<itemprop name="FluidHandle" type="xsd:string">0D2A60C9</itemprop>
+<itemprop name="FlowRateType" type="xsd:string">G</itemprop>
+<itemprop name="Pressure" type="xsd:double">417.942000200878</itemprop>
+<itemprop name="Temperature" type="xsd:double">58.3099230094923</itemprop>
+<itemprop name="StockTankLGR" type="xsd:double">0</itemprop>
+<itemprop name="StockTankGasVolumeFlowRate" type="xsd:double">3.53150002190417</itemprop>
+<itemprop name="StockTankLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="StockTankWatercut" type="xsd:double">0</itemprop>
+<itemprop name="StockTankMassFlowRate" type="xsd:double">1.73144757190311</itemprop>
+<itemprop name="MassFlowRateResidual" type="xsd:double">-2.14786504137976e-8</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Sk 1</name>
+<itemprops type="SINK">
+<itemprop name="FluidHandle" type="xsd:string">0D2A60C9</itemprop>
+<itemprop name="FlowRateType" type="xsd:string">G</itemprop>
+<itemprop name="Pressure" type="xsd:double">417.942000200878</itemprop>
+<itemprop name="Temperature" type="xsd:double">58.3099230094923</itemprop>
+<itemprop name="StockTankLGR" type="xsd:double">0</itemprop>
+<itemprop name="StockTankGasVolumeFlowRate" type="xsd:double">3.53150004380835</itemprop>
+<itemprop name="StockTankLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="StockTankWatercut" type="xsd:double">0</itemprop>
+<itemprop name="StockTankMassFlowRate" type="xsd:double">1.73144758264243</itemprop>
+</itemprops>
+</item>
+<item>
+<name>Src 1</name>
+<itemprops type="SOURCE">
+<itemprop name="FluidHandle" type="xsd:string">0D2A60C9</itemprop>
+<itemprop name="FlowRateType" type="xsd:string">G</itemprop>
+<itemprop name="Pressure" type="xsd:double">580.15</itemprop>
+<itemprop name="Temperature" type="xsd:double">68</itemprop>
+<itemprop name="StockTankLGR" type="xsd:double">0</itemprop>
+<itemprop name="StockTankGasVolumeFlowRate" type="xsd:double">3.5315</itemprop>
+<itemprop name="StockTankLiquidVolumeFlowRate" type="xsd:double">0</itemprop>
+<itemprop name="StockTankWatercut" type="xsd:double">0</itemprop>
+<itemprop name="StockTankMassFlowRate" type="xsd:double">1.73144756116378</itemprop>
+</itemprops>
+</item>
+</items>
+</case>
+</cases>
+</model>
+<fluids>
+<fluid type="Compositional">
+<handle>0D2A60C9</handle>
+<blob>CM06,60    ,1,0,0,26,10,3,5,1P,L,100,EM01,13,X,EG,1.15292E18,1.15292E18,03931A17</blob>
+</fluid>
+</fluids>
+</root>

@@ -22,16 +22,16 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
     public class NodeKeyword : IKeywordWriter
     {
         NodeData Data { get; set; }
-        SimpleP<double?> Distance => new("DISTANCE=", () => Data.Distance);
-        SimpleP<double?> Elevation => new("ELEVATION=", () => Data.Elevation);
-        SimpleP<double?> Md => new("MD=", () => Data.Md);
-        SimpleP<double?> Tvd => new("TVD=", () => Data.Tvd);
-        SimpleP<double?> AmbientTemperature => new("TEMP=", () => Data.AmbientTemperature);
-        SimpleP<double?> HeatTransferCoefficient => new("U=", () => Data.HeatTransferCoefficient);
-        SimpleP<string> Label => new("LABEL=", () => Data.Label);
-        SimpleP<double?> MeasuredPressure => new("MPRESSURE=", () => Data.MeasuredPressure);
-        SimpleP<double?> MeasuredTemperature => new("MTEMPERATURE=", () => Data.MeasuredTemperature);
-        SimpleP<double?> MeasuredLiquidHoldup => new("MHOLDUP=", () => Data.MeasuredLiquidHoldup);
+        SimpleP<double?> Distance => new("DISTANCE=", Data.Distance);
+        SimpleP<double?> Elevation => new("ELEVATION=", Data.Elevation);
+        SimpleP<double?> Md => new("MD=", Data.Md);
+        SimpleP<double?> Tvd => new("TVD=", Data.Tvd);
+        SimpleP<double?> AmbientTemperature => new("TEMP=", Data.AmbientTemperature);
+        SimpleP<double?> HeatTransferCoefficient => new("U=", Data.HeatTransferCoefficient);
+        SimpleP<string> Label => new("LABEL=", Data.Label);
+        SimpleP<double?> MeasuredPressure => new("MPRESSURE=", Data.MeasuredPressure);
+        SimpleP<double?> MeasuredTemperature => new("MTEMPERATURE=", Data.MeasuredTemperature);
+        SimpleP<double?> MeasuredLiquidHoldup => new("MHOLDUP=", Data.MeasuredLiquidHoldup);
 
         public string Write(KeywordOptions options)
         {

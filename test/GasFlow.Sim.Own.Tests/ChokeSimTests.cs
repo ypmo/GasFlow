@@ -20,7 +20,6 @@ namespace GasFlow.Sim.Own.Tests
             GasFlow.Sim.Dto.SimInput model = new();
             var volume = await sim.Simulate(model, CancellationToken.None);
             Assert.NotNull(volume);
-
         }
 
         private ProductFlowModel ChokeModel()

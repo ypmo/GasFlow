@@ -22,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="generate_engine_files.py" />
+    <Compile Include="Node\generate_engine_files.py" />
     <Compile Include="PipeSimPy.py" />
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FlowLine\" />
+    <Folder Include="Node\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

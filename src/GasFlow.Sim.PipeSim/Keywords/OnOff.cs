@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GasFlow.Sim.PipeSim.Keywords.Equipments
+namespace GasFlow.Sim.PipeSim.Keywords
 {
   public enum OnOff
     {

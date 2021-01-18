@@ -14,7 +14,7 @@ namespace GasFlow.Sim.PipeSim
             this.singleBranchGenerator = singleBranchGenerator;
         }
 
-        public Task<string> Generate(ProductFlowModel model, ProductVolume volume)
+        public string Generate(ProductFlowModel model, ProductVolume volume)
         {
 
             throw new NotImplementedException();

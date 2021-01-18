@@ -8,9 +8,11 @@ namespace GasFlow.Sim.PipeSim.EngineFiles
 {
     public class FlowLineGenerator : ISingleBranchGenerator
     {
-        public Task<string> Generate(ProductFlowModel model, ProductVolume volume)
+        public string Generate(ProductFlowModel model, ProductVolume volume)
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

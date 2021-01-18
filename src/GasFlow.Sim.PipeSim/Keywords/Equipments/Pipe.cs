@@ -62,18 +62,18 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
     public class PipeKeyword : IKeywordWriter
     {
         public PipeData Data { get; set; }
-        MeassureP InternalDiameter => new("ID=", new Uoms("mm", "inch"), () => Data.InternalDiameter);
-        MeassureP WallThickness => new("WT=", new Uoms("mm", "inch"), () => Data.WallThickness);
-        MeassureP Roughness => new("ROUGHNESS=", new Uoms("mm", "inch"), () => Data.Roughness);
-        MeassureP AnnulusInsideDiameter => new("AID=", new Uoms("mm", "inch"), () => Data.AnnulusInsideDiameter);
-        MeassureP AnnulusOutsideDiameter => new("AOD=", new Uoms("mm", "inch"), () => Data.AnnulusOutsideDiameter);
-        SimpleP<FlowType?> FlowType => new("ID=", () => Data.FlowType);
-        MeassureP Conductivity => new("CONDUCTIVITY=", new Uoms("W/m/K", "Btu/hr/ft/F"), () => Data.Conductivity);
-        MeassureP WaxThickness => new("WAXTHICKNESS=", new Uoms("mm", "inch"), () => Data.WaxThickness);
-        MeassureP WaxConductivity => new("WAXK=", new Uoms("W/m/K", "Btu/hr/ft/F"), () => Data.WaxConductivity);
-        MeassureP DriveRodDiameter => new("RODDIAM=", new Uoms("mm", "inch"), () => Data.DriveRodDiameter);
-        MeassureP InLineHeater => new("ILHMAXPOWER=", new Uoms("Kw/m", "BTU/hr/ft"), () => Data.InLineHeater);
-        MeassureP MinimumTemperature => new("ILHMINTEMP=", new Uoms("Kw/m", "BTU/hr/ft"), () => Data.MinimumTemperature);
+        MeassureP InternalDiameter => new("ID=", new Uoms("mm", "inch"), Data.InternalDiameter);
+        MeassureP WallThickness => new("WT=", new Uoms("mm", "inch"), Data.WallThickness);
+        MeassureP Roughness => new("ROUGHNESS=", new Uoms("mm", "inch"), Data.Roughness);
+        MeassureP AnnulusInsideDiameter => new("AID=", new Uoms("mm", "inch"), Data.AnnulusInsideDiameter);
+        MeassureP AnnulusOutsideDiameter => new("AOD=", new Uoms("mm", "inch"), Data.AnnulusOutsideDiameter);
+        SimpleP<FlowType?> FlowType => new("ID=", Data.FlowType);
+        MeassureP Conductivity => new("CONDUCTIVITY=", new Uoms("W/m/K", "Btu/hr/ft/F"), Data.Conductivity);
+        MeassureP WaxThickness => new("WAXTHICKNESS=", new Uoms("mm", "inch"), Data.WaxThickness);
+        MeassureP WaxConductivity => new("WAXK=", new Uoms("W/m/K", "Btu/hr/ft/F"), Data.WaxConductivity);
+        MeassureP DriveRodDiameter => new("RODDIAM=", new Uoms("mm", "inch"), Data.DriveRodDiameter);
+        MeassureP InLineHeater => new("ILHMAXPOWER=", new Uoms("Kw/m", "BTU/hr/ft"), Data.InLineHeater);
+        MeassureP MinimumTemperature => new("ILHMINTEMP=", new Uoms("Kw/m", "BTU/hr/ft"), Data.MinimumTemperature);
 
         public string Write(KeywordOptions options)
         {

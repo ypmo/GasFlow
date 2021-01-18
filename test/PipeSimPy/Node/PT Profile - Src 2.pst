@@ -1,5 +1,5 @@
-$#PIPESIM build: 2017.2.1071.0 on 14 ÿםגאנÿ 2021 ד. 8:44:42
-$ Src 1
+$#PIPESIM build: 2017.2.1071.0 on 15 ÿםגאנÿ 2021 ד. 12:04:56
+$ Src 2
 job
 UNITS	input = ENG output = ENG
 OPTIONS ppmethod = 1 thmethod = 1
@@ -15,7 +15,7 @@ $*********************************************
 $   OPERATION
 $*********************************************
 plot	casedata jobdata xycase = dc
-itern	type = gflow pout = 290.08 psia  
+itern	type = lflow 
 
 
 plot profile =+g8
@@ -42,7 +42,7 @@ composition USE = 'C1'
 $*********************************************
 $   INLET
 $*********************************************
-inlet		temp= 68  pres= 580.15  label = 'Src 1' 
+inlet		temp= 50  pres= 725.19  label = 'Src 2' 
 
 
 
@@ -57,15 +57,13 @@ HEAT		partburymethod = 2009 spifcmethod = BJA mpifcmethod = BJA
 options		WAXCALC = ON
 options		ASPHALTCALC = ON
 
-FLOWLINE	label='FL 1' uid=1 
+FLOWLINE	label='FL 2' uid=1 
 slug		piss = on size = ssb 
-pipe		id = 1.9685  wt = 0.5  roughness = 0.001  flowtype = tubing label = 'FL 1' 
+pipe		id = 10  wt = 0.5  roughness = 0.001  flowtype = tubing label = 'FL 2' 
 heat		ifc = input u = input 
 node		dist = 0       elev = 0       temp = 60      u = 0.2     
-node		dist = 1093.6  elev = 10.936  temp = 60      u = 0.2     
-node		dist = 2187.2  elev = 0       temp = 60      u = 0.2     
-node		dist = 3280.8  elev = 0       temp = 60      u = 0.2     
-
+node		dist = 100     elev = 1       temp = 60      u = 0.2     
+node		dist = 200     elev = 0       temp = 60      u = 0.2     
 
 
 ENDJOB
