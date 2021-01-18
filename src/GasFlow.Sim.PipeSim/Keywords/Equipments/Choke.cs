@@ -12,7 +12,7 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         /// </summary>
         [Required]
         [Keyword("DBEAN=")]
-        [Uom(SiLength.mm, EngLength.inch)]
+        [UomLengthMini]
         public Meassure Dbean { get; set; }
 
         /// <summary>
@@ -63,42 +63,42 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         public OnOff? Verbose { get; set; }
 
         [Keyword("PIPEID=")]
-        [Uom(SiLength.mm, EngLength.inch)]
+        [UomLengthMini]
         public Meassure PipeDia { get; set; }
 
         /// <summary>
         /// Maximum mass rate (lb/sec or Kg/sec).
         /// </summary>
         [Keyword("MAXMASS=")]
-        [Uom("Kg/sec", "lb/sec")]
+        [UomMassRate]
         public Meassure MaxMassRate { get; set; }
 
         /// <summary>
         /// Maximum gas rate (mmscfd or mmsm3d).
         /// </summary>
         [Keyword("MAXGAS=")]
-        [Uom("mmsm3d", "mmscfd")]
+        [UomVolumeRateNorn]
         public Meassure MaxGasRate { get; set; }
 
         /// <summary>
         /// Maximum gross liquid rate (sbbl/day or sm3/day).
         /// </summary>
         [Keyword("MAXLIQUID=")]
-        [Uom("sm3/day", "sbbl/day")]
+        [UomVolumeRateMini]
         public Meassure MaxGrossLiquidRate { get; set; }
 
         /// <summary>
         /// Maximum oil rate (sbbl/day or sm3/day).
         /// </summary>
         [Keyword("MAXOIL=")]
-        [Uom("sm3/day", "sbbl/day")]
+        [UomVolumeRateMini]
         public Meassure MaxOilRate { get; set; }
 
         /// <summary>
         /// Maximum water rate (sbbl/day or sm3/day).
         /// </summary>
         [Keyword("MAXWATER=")]
-        [Uom("sm3/day", "sbbl/day")]
+        [UomVolumeRateMini]
         public Meassure MaxWaterRate { get; set; }
     }
 

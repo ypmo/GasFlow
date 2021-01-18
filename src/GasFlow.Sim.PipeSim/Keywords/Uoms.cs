@@ -24,8 +24,6 @@ namespace GasFlow.Sim.PipeSim.Keywords
         public string ENG { get; set; }
         public string Uno { get; set; }
 
-
-
         public string Uom(UomSystem u) => Uom(u, SI, ENG, Uno);
 
         static string Uom(UomSystem u, string si, string eng, string uno) =>

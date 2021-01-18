@@ -37,6 +37,17 @@ namespace GasFlow.Sim.PipeSim.Test
             Assert.Equal("C", uom.Uno);
         }
 
+        [Fact]
+        public void CustomUom()
+        {
+            Expression<Func<SimpleData, Meassure>> exp = (t) => t.CustomMeassure;
+            var uom = exp.Uoms();
+            Assert.Equal("K1", uom.SI);
+            Assert.Equal("K2", uom.ENG);
+            Assert.Null(uom.Uno);
+        }
+
+
         public class SimpleData
         {
             [Keyword("DOUBLE=")]
@@ -47,6 +58,14 @@ namespace GasFlow.Sim.PipeSim.Test
 
             [Uom("C")]
             public Meassure UnoMeassure { get; set; }
+
+            [CustomUom]
+            public Meassure CustomMeassure { get; set; }
+
+        }
+        public class CustomUomAttribute : UomAttribute
+        {
+            public CustomUomAttribute() : base("K1", "K2") { }
         }
     }
 }

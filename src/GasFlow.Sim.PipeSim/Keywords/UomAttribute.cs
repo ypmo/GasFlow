@@ -36,83 +36,91 @@ namespace GasFlow.Sim.PipeSim.Keywords
             SI = si.GetEnumAttribute<TS, XmlEnumAttribute>()?.Name ?? si.ToString();
             ENG = eng.GetEnumAttribute<TE, XmlEnumAttribute>()?.Name ?? si.ToString();
         }
-
-        public UomAttribute(SiLength si, EngLength eng) => setUoms(si, eng);
-        public UomAttribute(SiTemp si, EngTemp eng) => setUoms(si, eng);
-        public UomAttribute(SiHeatTransfer si, EngHeatTransfer eng) => setUoms(si, eng);
-        public UomAttribute(SiThermalConductivity si, EngThermalConductivity eng) => setUoms(si, eng);
-        public UomAttribute(SiPressure si, EngPressure eng) => setUoms(si, eng);
-
     }
 
-
-
-    public enum SiLength
+    /// <summary>
+    /// "mm", "inch"
+    /// </summary>
+    public class UomLengthMini : UomAttribute
     {
-        [XmlEnum("mm")]
-        mm,
-        [XmlEnum("m")]
-        m
+        public UomLengthMini() : base("mm", "inch") { }
     }
 
-    public enum EngLength
+    /// <summary>
+    /// "m", "ft"
+    /// </summary>
+    public class UomLengthNorm : UomAttribute
     {
-        [XmlEnum("inch")]
-        inch,
-        [XmlEnum("ft")]
-        ft
+        public UomLengthNorm() : base("m", "ft") { }
     }
 
-    public enum SiTemp
+    /// <summary>
+    /// "C", "F"
+    /// </summary>
+    public class UomTemperature : UomAttribute
     {
-        [XmlEnum("C")]
-        C
+        public UomTemperature() : base("C", "F") { }
     }
 
-    public enum EngTemp
+    /// <summary>
+    /// "W/m2/K", "Btu/hr/ft2/F"
+    /// </summary>
+    public class UomHeatTransfer : UomAttribute
     {
-        [XmlEnum("F")]
-        F
+        public UomHeatTransfer() : base("W/m2/K", "Btu/hr/ft2/F") { }
     }
 
-    public enum SiHeatTransfer
+    /// <summary>
+    /// "W/m/K", "Btu/hr/ft/F"
+    /// </summary>
+    public class UomThermalConductivity : UomAttribute
     {
-        [XmlEnum("W/m2/K")]
-        Wm2K
+        public UomThermalConductivity() : base("W/m/K", "Btu/hr/ft/F") { }
     }
 
-    public enum EngHeatTransfer
+    /// <summary>
+    /// "bara", "psia"
+    /// </summary>
+    public class UomPressure : UomAttribute
     {
-        [XmlEnum("Btu/hr/ft2/F")]
-        BtuHrFt2F
+        public UomPressure() : base("bara", "psia") { }
     }
 
-
-    public enum SiThermalConductivity
+    /// <summary>
+    /// "bar", "psi"
+    /// </summary>
+    public class UomDeltaPressure : UomAttribute
     {
-        [XmlEnum("W/m/K")]
-        WmK
+        public UomDeltaPressure() : base("bar", "psi") { }
     }
 
-    public enum EngThermalConductivity
+    /// <summary>
+    /// "sm3/d", "sbbl/d"
+    /// </summary>
+    public class UomVolumeRateMini : UomAttribute
     {
-        [XmlEnum("Btu/hr/ft/F")]
-        BtuHrFtF
+        public UomVolumeRateMini() : base("sm3/d", "sbbl/d") { }
+    }
+    /// <summary>
+    /// "mmscm3/d", "mmscf/d"
+    /// </summary>
+    public class UomVolumeRateNorn : UomAttribute
+    {
+        public UomVolumeRateNorn() : base("mmscm3/d", "mmscf/d") { }
     }
 
-    public enum SiPressure
+    /// <summary>
+    /// "kg/sec", "lb/sec"
+    /// </summary>
+    public class UomMassRate : UomAttribute
     {
-        [XmlEnum("bara")]
-        bara,
-        [XmlEnum("bar")]
-        bar
+        public UomMassRate() : base("kg/sec", "lb/sec") { }
     }
-
-    public enum EngPressure
+    /// <summary>
+    /// "kW/m", "BTU/hr/ft"
+    /// </summary>
+    public class UomPowerPerLength : UomAttribute
     {
-        [XmlEnum("psia")]
-        psia,
-        [XmlEnum("psi")]
-        psi
+        public UomPowerPerLength() : base("kW/m", "BTU/hr/ft") { }
     }
 }
