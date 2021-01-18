@@ -7,10 +7,13 @@ namespace GasFlow.Sim.PipeSim.Keywords
 {
     public class Uoms
     {
+        public Uoms() { }
+
         public Uoms(string uno)
         {
             Uno = uno;
         }
+
         public Uoms(string si, string eng)
         {
             SI = si;
@@ -33,6 +36,7 @@ namespace GasFlow.Sim.PipeSim.Keywords
                   _ => throw new NotImplementedException(),
               };
     }
+
     public enum SiLength
     {
         [XmlEnum("mm")]

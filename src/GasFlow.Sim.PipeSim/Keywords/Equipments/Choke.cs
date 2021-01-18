@@ -84,21 +84,21 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
     {
         ChokeData Data { get; set; }
 
-        MeassureP Dbean => new("DBEAN=", new Uoms("mm", "inch"), () => Data.Dbean);
-        SimpleP<CriticalFlowCorrelation?> CriticalCorrelation => new("CCORR=", () => Data.CriticalCorrelation);
-        SimpleP<SubCriticalFlowCorrelation?> SubCriticalCorrelation => new("SCCORR=", () => Data.SubCriticalCorrelation);
-        SimpleP<double?> CriticalPressureRatio => new("CPRATIO=", () => Data.CriticalPressureRatio);
-        MeassureP PercentageTolerance => new("TOL=", new Uoms("%"), () => Data.PercentageTolerance);
-        SimpleP<double?> DischargeCoefficient => new("CD=", () => Data.DischargeCoefficient);
-        SimpleP<double?> FlowCoefficient => new("CSP=", () => Data.FlowCoefficient);
-        SimpleP<double?> FluidSpecificHeatRatio => new("CPCV=", () => Data.FluidSpecificHeatRatio);
-        SimpleP<OnOff?> Verbose => new("VERBOSE=", () => Data.Verbose);
-        MeassureP PipeDia => new("PIPEID=", new Uoms("mm", "inch"), () => Data.PipeDia);
-        MeassureP MaxMassRate => new("MAXMASS=", new Uoms("Kg/sec", "lb/sec"), () => Data.MaxMassRate);
-        MeassureP MaxGasRate => new("MAXGAS=", new Uoms("mmsm3d", "mmscfd"), () => Data.MaxGasRate);
-        MeassureP MaxGrossLiquidRate => new("MAXLIQUID=", new Uoms("sm3/day", "sbbl/day"), () => Data.MaxGrossLiquidRate);
-        MeassureP MaxOilRate => new("MAXOIL=", new Uoms("sm3/day", "sbbl/day"), () => Data.MaxOilRate);
-        MeassureP MaxWaterRate => new MeassureP("MAXWATER=", new Uoms("sm3/day", "sbbl/day"), () => Data.MaxWaterRate);
+        MeassureP Dbean => new("DBEAN=", new Uoms("mm", "inch"), Data.Dbean);
+        SimpleP<CriticalFlowCorrelation?> CriticalCorrelation => new("CCORR=", Data.CriticalCorrelation);
+        SimpleP<SubCriticalFlowCorrelation?> SubCriticalCorrelation => new("SCCORR=", Data.SubCriticalCorrelation);
+        SimpleP<double?> CriticalPressureRatio => new("CPRATIO=", Data.CriticalPressureRatio);
+        MeassureP PercentageTolerance => new("TOL=", new Uoms("%"), Data.PercentageTolerance);
+        SimpleP<double?> DischargeCoefficient => new("CD=", Data.DischargeCoefficient);
+        SimpleP<double?> FlowCoefficient => new("CSP=", Data.FlowCoefficient);
+        SimpleP<double?> FluidSpecificHeatRatio => new("CPCV=", Data.FluidSpecificHeatRatio);
+        SimpleP<OnOff?> Verbose => new("VERBOSE=", Data.Verbose);
+        MeassureP PipeDia => new("PIPEID=", new Uoms("mm", "inch"), Data.PipeDia);
+        MeassureP MaxMassRate => new("MAXMASS=", new Uoms("Kg/sec", "lb/sec"), Data.MaxMassRate);
+        MeassureP MaxGasRate => new("MAXGAS=", new Uoms("mmsm3d", "mmscfd"), Data.MaxGasRate);
+        MeassureP MaxGrossLiquidRate => new("MAXLIQUID=", new Uoms("sm3/day", "sbbl/day"), Data.MaxGrossLiquidRate);
+        MeassureP MaxOilRate => new("MAXOIL=", new Uoms("sm3/day", "sbbl/day"), Data.MaxOilRate);
+        MeassureP MaxWaterRate => new MeassureP("MAXWATER=", new Uoms("sm3/day", "sbbl/day"), Data.MaxWaterRate);
 
         public string Write(KeywordOptions options)
         {
