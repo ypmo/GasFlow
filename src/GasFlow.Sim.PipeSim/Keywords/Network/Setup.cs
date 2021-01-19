@@ -6,22 +6,20 @@ namespace GasFlow.Sim.PipeSim.Keywords.Network
 {
     public class SetupData
     {
+        [Keyword("TITLE=")]
         public string Title { get; set; }
 
     }
     public class SetupKeyword : IKeywordWriter
     {
-        public SetupKeyword() { }
-        protected SetupKeyword(SetupData data) { Data = data; }
-
         SetupData Data { get; set; }
-        SimpleP<string> Title => new("TITLE=", Data.Title);
+
 
         public string Write(KeywordOptions options)
         {
             StringBuilder sb = new();
             sb
-                .AppendLine(Title);
+                .AppendLine(KeywordFactory.Create(Data, t => t.Title));
 
             return sb.ToString();
         }

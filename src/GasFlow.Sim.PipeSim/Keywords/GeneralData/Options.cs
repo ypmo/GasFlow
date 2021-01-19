@@ -10,11 +10,11 @@ namespace GasFlow.Sim.PipeSim.Keywords.GeneralData
         public int? Segments { get; set; }
 
         [Keyword("MAXSEGLEN=")]
-        [UomLength(SiLength.m, EngLength.ft)]
+        [UomLengthNorm]
         public Meassure MaxSegLength { get; set; }
 
         [Keyword("MINSEGLEN=")]
-        [UomLength(SiLength.m, EngLength.ft)]
+        [UomLengthNorm]
         public Meassure MinSegLength { get; set; }
 
         [Keyword("EOFS=")]

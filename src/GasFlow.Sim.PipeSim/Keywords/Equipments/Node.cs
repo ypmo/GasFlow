@@ -1,37 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace GasFlow.Sim.PipeSim.Keywords.Equipments
 {
     public class NodeData
     {
-        public double? Distance { get; set; }
+        [Keyword("DISTANCE=")]
+        [UomLengthNorm]
+        public Meassure Distance { get; set; }
+
+        [Keyword("ELEVATION=")]
+        [UomLengthNorm]
         public double? Elevation { get; set; }
+
+        [Keyword("MD=")]
+        [UomLengthNorm]
         public double? Md { get; set; }
+
+        [Keyword("TVD=")]
+        [UomLengthNorm]
         public double? Tvd { get; set; }
+
+        [Keyword("TEMP=")]
+        [UomTemperature]
         public double? AmbientTemperature { get; set; }
+
+        [Keyword("U=")]
+        [UomHeatTransfer]
         public double? HeatTransferCoefficient { get; set; }
+
         [MaxLength(12)]
+        [Keyword("LABEL=")]
         public string Label { get; set; }
-        public double? MeasuredPressure { get; set; }
-        public double? MeasuredTemperature { get; set; }
+
+        [Keyword("MPRESSURE=")]
+        [UomPressure]
+        public Meassure MeasuredPressure { get; set; }
+
+        [Keyword("MTEMPERATURE=")]
+        [UomTemperature]
+        public Meassure MeasuredTemperature { get; set; }
+
+        [Keyword("MHOLDUP=")]
         public double? MeasuredLiquidHoldup { get; set; }
     }
+
     public class NodeKeyword : IKeywordWriter
     {
-        NodeData Data { get; set; }
-        SimpleP<double?> Distance => new("DISTANCE=", Data.Distance);
-        SimpleP<double?> Elevation => new("ELEVATION=", Data.Elevation);
-        SimpleP<double?> Md => new("MD=", Data.Md);
-        SimpleP<double?> Tvd => new("TVD=", Data.Tvd);
-        SimpleP<double?> AmbientTemperature => new("TEMP=", Data.AmbientTemperature);
-        SimpleP<double?> HeatTransferCoefficient => new("U=", Data.HeatTransferCoefficient);
-        SimpleP<string> Label => new("LABEL=", Data.Label);
-        SimpleP<double?> MeasuredPressure => new("MPRESSURE=", Data.MeasuredPressure);
-        SimpleP<double?> MeasuredTemperature => new("MTEMPERATURE=", Data.MeasuredTemperature);
-        SimpleP<double?> MeasuredLiquidHoldup => new("MHOLDUP=", Data.MeasuredLiquidHoldup);
+        private NodeData Data { get; set; }
 
         public string Write(KeywordOptions options)
         {

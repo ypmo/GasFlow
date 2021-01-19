@@ -29,23 +29,98 @@ namespace GasFlow.Sim.PipeSim.Keywords
         public string SI { get; set; }
         public string ENG { get; set; }
         public string Uno { get; set; }
-    }
 
-    public static class  UomAttributeExtensions
-    {
-        public static Uoms Uoms (this UomAttribute attribute)
+        //Extensions CTORs
+        private void setUoms<TS, TE>(TS si, TE eng)
         {
-            return new Uoms() { SI = attribute.SI, ENG = attribute.ENG, Uno = attribute.Uno };
+            SI = si.GetEnumAttribute<TS, XmlEnumAttribute>()?.Name ?? si.ToString();
+            ENG = eng.GetEnumAttribute<TE, XmlEnumAttribute>()?.Name ?? si.ToString();
         }
     }
 
-    public class UomLengthAttribute : UomAttribute
+    /// <summary>
+    /// "mm", "inch"
+    /// </summary>
+    public class UomLengthMini : UomAttribute
     {
-        public UomLengthAttribute(SiLength si, EngLength eng) : base()
-        {
-            SI = si.GetEnumAttribute<SiLength, XmlEnumAttribute>()?.Name ?? si.ToString();
-            ENG = eng.GetEnumAttribute<EngLength, XmlEnumAttribute>()?.Name ?? si.ToString();
-        }
+        public UomLengthMini() : base("mm", "inch") { }
+    }
 
+    /// <summary>
+    /// "m", "ft"
+    /// </summary>
+    public class UomLengthNorm : UomAttribute
+    {
+        public UomLengthNorm() : base("m", "ft") { }
+    }
+
+    /// <summary>
+    /// "C", "F"
+    /// </summary>
+    public class UomTemperature : UomAttribute
+    {
+        public UomTemperature() : base("C", "F") { }
+    }
+
+    /// <summary>
+    /// "W/m2/K", "Btu/hr/ft2/F"
+    /// </summary>
+    public class UomHeatTransfer : UomAttribute
+    {
+        public UomHeatTransfer() : base("W/m2/K", "Btu/hr/ft2/F") { }
+    }
+
+    /// <summary>
+    /// "W/m/K", "Btu/hr/ft/F"
+    /// </summary>
+    public class UomThermalConductivity : UomAttribute
+    {
+        public UomThermalConductivity() : base("W/m/K", "Btu/hr/ft/F") { }
+    }
+
+    /// <summary>
+    /// "bara", "psia"
+    /// </summary>
+    public class UomPressure : UomAttribute
+    {
+        public UomPressure() : base("bara", "psia") { }
+    }
+
+    /// <summary>
+    /// "bar", "psi"
+    /// </summary>
+    public class UomDeltaPressure : UomAttribute
+    {
+        public UomDeltaPressure() : base("bar", "psi") { }
+    }
+
+    /// <summary>
+    /// "sm3/d", "sbbl/d"
+    /// </summary>
+    public class UomVolumeRateMini : UomAttribute
+    {
+        public UomVolumeRateMini() : base("sm3/d", "sbbl/d") { }
+    }
+    /// <summary>
+    /// "mmscm3/d", "mmscf/d"
+    /// </summary>
+    public class UomVolumeRateNorn : UomAttribute
+    {
+        public UomVolumeRateNorn() : base("mmscm3/d", "mmscf/d") { }
+    }
+
+    /// <summary>
+    /// "kg/sec", "lb/sec"
+    /// </summary>
+    public class UomMassRate : UomAttribute
+    {
+        public UomMassRate() : base("kg/sec", "lb/sec") { }
+    }
+    /// <summary>
+    /// "kW/m", "BTU/hr/ft"
+    /// </summary>
+    public class UomPowerPerLength : UomAttribute
+    {
+        public UomPowerPerLength() : base("kW/m", "BTU/hr/ft") { }
     }
 }
