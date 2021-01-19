@@ -111,8 +111,8 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
             var uomSys = options.UomSystem;
             StringBuilder text = new();
             text.AppendLine("CHOKE")
-                .AppendLine(KeywordFactory.Create(Data, t => t.Dbean), uomSys)
-                .AppendLine(KeywordFactory.Create(Data, t => t.CriticalCorrelation));
+                .AppendLine(Data, t => t.Dbean, uomSys)
+                .AppendLine(Data, t => t.CriticalCorrelation);
 
             return text.ToString();
         }
