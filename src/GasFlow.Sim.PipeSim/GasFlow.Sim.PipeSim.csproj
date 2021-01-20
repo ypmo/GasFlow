@@ -7,16 +7,15 @@
 
   <ItemGroup>
     <Compile Remove="EngineFiles\**" />
+    <Compile Remove="Meassures\**" />
     <EmbeddedResource Remove="EngineFiles\**" />
+    <EmbeddedResource Remove="Meassures\**" />
     <None Remove="EngineFiles\**" />
+    <None Remove="Meassures\**" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\ext\Yarus.Energistics\Devkit.Core\Devkit.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Meassures\" />
   </ItemGroup>
 
   <ItemGroup>

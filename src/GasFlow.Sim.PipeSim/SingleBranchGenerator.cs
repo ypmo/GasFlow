@@ -26,7 +26,5 @@ namespace GasFlow.Sim.PipeSim
             }
             throw new NotImplementedException();
         }
-
-        
     }
 }
