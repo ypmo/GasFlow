@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace GasFlow.Sim.PipeSim.Keywords.Equipments
 {
@@ -11,23 +12,23 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
 
         [Keyword("ELEVATION=")]
         [UomLengthNorm]
-        public double? Elevation { get; set; }
+        public Meassure Elevation { get; set; }
 
         [Keyword("MD=")]
         [UomLengthNorm]
-        public double? Md { get; set; }
+        public Meassure Md { get; set; }
 
         [Keyword("TVD=")]
         [UomLengthNorm]
-        public double? Tvd { get; set; }
+        public Meassure Tvd { get; set; }
 
         [Keyword("TEMP=")]
         [UomTemperature]
-        public double? AmbientTemperature { get; set; }
+        public Meassure AmbientTemperature { get; set; }
 
         [Keyword("U=")]
         [UomHeatTransfer]
-        public double? HeatTransferCoefficient { get; set; }
+        public Meassure HeatTransferCoefficient { get; set; }
 
         [MaxLength(12)]
         [Keyword("LABEL=")]
@@ -51,7 +52,16 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
 
         public string Write(KeywordOptions options)
         {
-            throw new NotImplementedException();
+            var uom = options.UomSystem;
+            StringBuilder sb = new();
+            sb.Append("NODE");
+
+            var distans = KeywordFactory.Create(Data, t => t.Distance).Write(uom);
+            var elevation = KeywordFactory.Create(Data, t => t.Elevation).Write(uom);
+            var md = KeywordFactory.Create(Data, t => t.Md).Write(uom);
+            var tvd = KeywordFactory.Create(Data, t => t.Md).Write(uom);
+
+            return sb.ToString();
         }
     }
 }
