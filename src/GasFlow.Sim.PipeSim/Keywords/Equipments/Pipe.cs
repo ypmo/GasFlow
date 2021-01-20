@@ -77,14 +77,14 @@ namespace GasFlow.Sim.PipeSim.Keywords.Equipments
         /// In-Line Heater
         /// </summary>
         [Keyword("ILHMAXPOWER=")]
-        [UomPowerPerLength]
+        [UomEnergyPerLength]
         public Meassure InLineHeater { get; set; }
 
         /// <summary>
         /// This subcode allows a fixed minimum temperature to be maintained across the pipeline by assigning required variable heating power per unit length of pipe
         /// </summary>
         [Keyword("ILHMAXPOWER=")]
-        [UomPowerPerLength]
+        [UomEnergyPerLength]
         public Meassure MinimumTemperature { get; set; }
     }
 

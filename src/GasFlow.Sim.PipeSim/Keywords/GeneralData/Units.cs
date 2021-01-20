@@ -19,8 +19,14 @@ namespace GasFlow.Sim.PipeSim.Keywords.GeneralData
 
         public string WriteText(KeywordOptions options)
         {
+            StringBuilder sb = new();
+            sb
+                .AppendLine("UNITS")
+                .AppendLine(Data, t => t.Input)
+                .AppendLine(Data, t => t.Output)
+                .AppendLine(Data, t => t.All);
 
-            throw new NotImplementedException();
+            return sb.ToString();
         }
     }
 }

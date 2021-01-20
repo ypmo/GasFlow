@@ -119,8 +119,13 @@ namespace GasFlow.Sim.PipeSim.Keywords
     /// <summary>
     /// "kW/m", "BTU/hr/ft"
     /// </summary>
-    public class UomPowerPerLength : UomAttribute
+    public class UomEnergyPerLength : UomAttribute
     {
-        public UomPowerPerLength() : base("kW/m", "BTU/hr/ft") { }
+        public UomEnergyPerLength() : base("kW/m", "BTU/hr/ft") { }
+    }
+
+    public class UomEnergyPerVolum : UomAttribute
+    {
+        public UomEnergyPerVolum() : base("kJ/kg", "BTU/lb") { }
     }
 }
